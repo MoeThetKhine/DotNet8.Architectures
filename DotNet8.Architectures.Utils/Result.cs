@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Utils
 {
-    internal class Result
+    public class Result<T>
     {
     }
 }
