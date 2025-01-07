@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DotNet8.Architectures.DbServices.Models;
+﻿namespace DotNet8.Architectures.DbServices.Models;
 
 public partial class TaskCategory
 {
