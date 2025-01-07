@@ -3,9 +3,56 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NLayer", "NLayer", "{50E79095-9EDF-4341-BCD4-60B7589EB04D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4C3522FC-2863-4ED3-8127-1122755F1C68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.DbServices", "DotNet8.Architectures.DbServices\DotNet8.Architectures.DbServices.csproj", "{FA410D34-75BC-4D89-BD7D-4AA7EE076945}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.DTO", "DotNet8.Architectures.DTO\DotNet8.Architectures.DTO.csproj", "{9166C656-BDA2-4FCA-95B8-DC5D70479332}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Extensions", "DotNet8.Architectures.Extensions\DotNet8.Architectures.Extensions.csproj", "{388D1B0B-DC80-4B1B-9151-895721C636A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Shared", "DotNet8.Architectures.Shared\DotNet8.Architectures.Shared.csproj", "{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Utils", "DotNet8.Architectures.Utils\DotNet8.Architectures.Utils.csproj", "{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA410D34-75BC-4D89-BD7D-4AA7EE076945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA410D34-75BC-4D89-BD7D-4AA7EE076945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA410D34-75BC-4D89-BD7D-4AA7EE076945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA410D34-75BC-4D89-BD7D-4AA7EE076945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9166C656-BDA2-4FCA-95B8-DC5D70479332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9166C656-BDA2-4FCA-95B8-DC5D70479332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9166C656-BDA2-4FCA-95B8-DC5D70479332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9166C656-BDA2-4FCA-95B8-DC5D70479332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388D1B0B-DC80-4B1B-9151-895721C636A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388D1B0B-DC80-4B1B-9151-895721C636A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388D1B0B-DC80-4B1B-9151-895721C636A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388D1B0B-DC80-4B1B-9151-895721C636A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FA410D34-75BC-4D89-BD7D-4AA7EE076945} = {4C3522FC-2863-4ED3-8127-1122755F1C68}
+		{9166C656-BDA2-4FCA-95B8-DC5D70479332} = {4C3522FC-2863-4ED3-8127-1122755F1C68}
+		{388D1B0B-DC80-4B1B-9151-895721C636A2} = {4C3522FC-2863-4ED3-8127-1122755F1C68}
+		{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655} = {4C3522FC-2863-4ED3-8127-1122755F1C68}
+		{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9} = {4C3522FC-2863-4ED3-8127-1122755F1C68}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D362481D-50CA-49BC-A186-88FE1DA3F994}
