@@ -50,6 +50,8 @@ public partial class AppDbContext : DbContext
 
         #endregion
 
+        #region TblBlog
+
         modelBuilder.Entity<TblBlog>(entity =>
         {
             entity
@@ -61,6 +63,8 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.BlogId).ValueGeneratedOnAdd();
             entity.Property(e => e.BlogTitle).HasMaxLength(50);
         });
+
+        #endregion
 
         modelBuilder.Entity<ToDoList>(entity =>
         {
