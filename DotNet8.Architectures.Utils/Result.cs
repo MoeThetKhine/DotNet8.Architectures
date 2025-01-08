@@ -9,6 +9,8 @@ namespace DotNet8.Architectures.Utils
         public bool IsSuccess { get; set; }
         public EnumStatusCode StatusCode { get; set; }
 
+        #region Success
+
         public static Result<T> Success(string message = "Success", EnumStatusCode statusCode = EnumStatusCode.Success)
         {
             return new Result<T>
@@ -17,7 +19,9 @@ namespace DotNet8.Architectures.Utils
                 Message = message,
                 StatusCode = statusCode
             };
-        }   
+        }
+
+        #endregion
 
         public static Result<T> Success(T data, string message = "Success." , EnumStatusCode statusCode = EnumStatusCode.Success)
         {
