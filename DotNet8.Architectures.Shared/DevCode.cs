@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace DotNet8.Architectures.Shared;
+﻿namespace DotNet8.Architectures.Shared;
 
 #region DevCode
 
