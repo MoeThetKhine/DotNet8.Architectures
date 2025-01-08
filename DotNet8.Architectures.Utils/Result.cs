@@ -38,6 +38,8 @@ namespace DotNet8.Architectures.Utils
 
         #endregion
 
+        #region SaveSuccess
+
         public static Result<T> SaveSuccess(string message = "Saving Successful.", EnumStatusCode statusCode = EnumStatusCode.Success)
         {
             return new Result<T>
@@ -47,6 +49,8 @@ namespace DotNet8.Architectures.Utils
                 StatusCode = statusCode
             };
         }
+
+        #endregion
 
         public static Result<T> UpdateSuccess(string message = "Update Successful.", EnumStatusCode statusCode = EnumStatusCode.Success)
         {
