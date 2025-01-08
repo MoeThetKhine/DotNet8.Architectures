@@ -108,6 +108,7 @@ namespace DotNet8.Architectures.Utils
 
         #endregion
 
+        #region NotFound
 
         public static Result<T> NotFound(string message = "No Data Found.", EnumStatusCode statusCode = EnumStatusCode.NotFound)
         {
@@ -118,6 +119,8 @@ namespace DotNet8.Architectures.Utils
                 StatusCode = statusCode
             };
         }
+
+        #endregion
 
     }
 }
