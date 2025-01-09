@@ -1,5 +1,7 @@
 ﻿namespace DotNet8.Architectures.DTO.PageSetting;
 
+#region PageSettingModel
+
 public class PageSettingModel
 {
     public int PageNo { get; set; }
@@ -14,5 +16,6 @@ public class PageSettingModel
         PageCount = pageCount;
         TotalCount = totalCount;
     }
-
 }
+
+#endregion
