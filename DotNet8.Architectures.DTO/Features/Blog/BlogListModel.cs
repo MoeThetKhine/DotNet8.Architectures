@@ -1,5 +1,4 @@
-﻿
-namespace DotNet8.Architectures.DTO.Features.Blog;
+﻿namespace DotNet8.Architectures.DTO.Features.Blog;
 
 #region BlogListModel
 
