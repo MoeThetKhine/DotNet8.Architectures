@@ -1,10 +1,5 @@
 ﻿using DotNet8.Architectures.DTO.Features.Blog;
 using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Shared
 {
