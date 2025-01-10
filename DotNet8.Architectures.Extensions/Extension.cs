@@ -3,6 +3,8 @@ using DotNet8.Architectures.DTO.Features.Blog;
 
 namespace DotNet8.Architectures.Extensions;
 
+#region Extension
+
 public static class Extension
 {
 
@@ -37,3 +39,5 @@ public static class Extension
     #endregion
 
 }
+
+#endregion
