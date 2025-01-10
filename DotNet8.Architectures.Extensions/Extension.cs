@@ -22,6 +22,8 @@ public static class Extension
 
     #endregion
 
+    #region TblBlog ToEntity
+
     public static TblBlog ToEntity(this BlogRequestModel model)
     {
         return new TblBlog
@@ -31,4 +33,7 @@ public static class Extension
             BlogContent = model.BlogContent
         };
     }
+
+    #endregion
+
 }
