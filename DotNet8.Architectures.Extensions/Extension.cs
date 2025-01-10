@@ -1,6 +1,4 @@
-﻿
-
-namespace DotNet8.Architectures.Extensions;
+﻿namespace DotNet8.Architectures.Extensions;
 
 #region Extension
 
