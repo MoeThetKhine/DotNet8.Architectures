@@ -81,7 +81,39 @@ namespace DotNet8.Architectures.DataAccess.Features.Blog
 
             result:
             return response;
+        }
 
+        public async Task<Result<BlogModel>> UpdateBlogAsync(BlogRequestModel blogRequest, int id, CancellationToken cancellationToken)
+        {
+            Result<BlogModel> response;
+
+            try
+            {
+                var blog = await _context.TblBlogs
+                    .FirstOrDefaultAsync(x => x.BlogId == id,
+                    cancellationToken: cancellationToken);
+
+                if(blog is null)
+                {
+                    response = Result<BlogModel>.NotFound();
+                    goto result;
+                }
+
+                blog.BlogTitle = blogRequest.BlogTitle;
+                blog.BlogAuthor = blogRequest.BlogAuthor;
+                blog.BlogContent = blogRequest.BlogContent;
+
+                _context.TblBlogs.Update(blog);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                response = Result<BlogModel>.SaveSuccess();
+            }
+            catch(Exception ex)
+            {
+                response = Result<BlogModel>.Failure(ex);
+            }
+        result:
+            return response;
         }
     }
 }
