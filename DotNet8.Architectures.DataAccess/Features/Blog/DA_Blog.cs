@@ -1,4 +1,10 @@
-﻿using System;
+﻿using DotNet8.Architectures.DbServices.Models;
+using DotNet8.Architectures.DTO.Features.Blog;
+using DotNet8.Architectures.DTO.PageSetting;
+using DotNet8.Architectures.Extensions;
+using DotNet8.Architectures.Utils;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +12,48 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.DataAccess.Features.Blog
 {
-    internal class DA_Blog
+    public class DA_Blog
     {
+        private readonly AppDbContext _context;
+
+        public DA_Blog(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<Result<BlogListModel>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
+        {
+            Result<BlogListModel> response;
+
+            try
+            {
+                var query = _context.TblBlogs.OrderByDescending(x => x.BlogId);
+                var lst = await query
+                    .Skip((pageNo - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToListAsync(cancellationToken);
+
+                var totalCount = await query.CountAsync(cancellationToken);
+                var pageCount = totalCount / pageSize;
+
+                if(totalCount % pageSize > 0)
+                {
+                    pageCount++;
+                }
+
+                var pageSettingModel = new PageSettingModel(pageNo, pageSize, pageCount, totalCount);
+                response = Result<BlogListModel>.Success(
+                    new BlogListModel
+                    {
+                        DataLst = lst.Select(x => x.ToModel()),
+                        PageSetting = pageSettingModel
+                    });
+            }
+            catch(Exception ex)
+            {
+                response = Result<BlogListModel>.Failure(ex);
+            }
+            return response;
+        }
     }
 }
