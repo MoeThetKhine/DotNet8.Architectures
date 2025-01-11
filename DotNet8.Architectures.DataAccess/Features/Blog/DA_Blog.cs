@@ -55,5 +55,33 @@ namespace DotNet8.Architectures.DataAccess.Features.Blog
             }
             return response;
         }
+
+        public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
+        {
+            Result<BlogModel> response;
+
+            try
+            {
+                var blog = await _context.TblBlogs.FindAsync(
+                    [id],
+                    cancellationToken: cancellationToken
+                    );
+                if(blog is null)
+                {
+                    response = Result<BlogModel>.NotFound("Blog Not Found");
+                    goto result;
+                }
+
+                response = Result<BlogModel>.Success(blog.ToModel());
+            }
+            catch(Exception ex)
+            {
+                response = Result<BlogModel>.Failure(ex);
+            }
+
+            result:
+            return response;
+
+        }
     }
 }
