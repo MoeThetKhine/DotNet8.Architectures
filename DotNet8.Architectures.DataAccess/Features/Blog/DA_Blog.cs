@@ -115,5 +115,8 @@ namespace DotNet8.Architectures.DataAccess.Features.Blog
         result:
             return response;
         }
+
+        public async Task<Result<BlogMode>> PatchBlog
+
     }
 }
