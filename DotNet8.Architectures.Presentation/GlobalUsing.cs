@@ -4,3 +4,4 @@ global using DotNet8.Architectures.DbServices.Models;
 global using DotNet8.Architectures.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.AspNetCore.Mvc;
+global using DotNet8.Architectures.DTO.Features.Blog;

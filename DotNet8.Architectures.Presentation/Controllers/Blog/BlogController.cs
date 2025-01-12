@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.DTO.Features.Blog;
-
-namespace DotNet8.Architectures.Presentation.Controllers.Blog
+﻿namespace DotNet8.Architectures.Presentation.Controllers.Blog
 {
     [Route("api/[controller]")]
     [ApiController]
