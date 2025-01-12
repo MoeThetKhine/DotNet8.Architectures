@@ -116,7 +116,23 @@ namespace DotNet8.Architectures.DataAccess.Features.Blog
             return response;
         }
 
-        public async Task<Result<BlogMode>> PatchBlog
+        public async Task<Result<BlogModel>> AddBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
+        {
+            Result<BlogModel> response;
+
+            try
+            {
+                await _context.TblBlogs.AddAsync(blogRequest.ToEntity(), cancellationToken: cancellationToken);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                response = Result<BlogModel>.SaveSuccess();
+            }
+            catch(Exception ex)
+            {
+                response = Result<BlogModel>.Failure(ex);
+            }
+            return response;
+        }
 
     }
 }
