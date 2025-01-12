@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace DotNet8.Architectures.Presentation.Controllers;
+﻿namespace DotNet8.Architectures.Presentation.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
