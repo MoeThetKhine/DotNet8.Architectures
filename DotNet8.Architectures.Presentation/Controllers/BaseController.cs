@@ -7,5 +7,9 @@ namespace DotNet8.Architectures.Presentation.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
+        protected IActionResult Content(object obj)
+        {
+            return Content(obj.ToJson(), "application/json");
+        }
     }
 }
