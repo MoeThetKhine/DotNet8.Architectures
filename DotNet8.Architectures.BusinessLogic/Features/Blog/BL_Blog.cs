@@ -1,4 +1,9 @@
-﻿using System;
+﻿using DotNet8.Architectures.DataAccess.Features.Blog;
+using DotNet8.Architectures.DTO.Features.Blog;
+using DotNet8.Architectures.Shared;
+using DotNet8.Architectures.Utils;
+using DotNet8.Architectures.Utils.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +11,43 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.BusinessLogic.Features.Blog
 {
-    internal class BL_Blog
+    public class BL_Blog
     {
+        private readonly DA_Blog _dA_Blog;
+        private readonly BlogValidator _blogValidator;
+
+        public BL_Blog(DA_Blog dA_Blog, BlogValidator blogValidator)
+        {
+            _dA_Blog = dA_Blog;
+            _blogValidator = blogValidator;
+        }
+
+        public async Task<Result<BlogListModel>> GetBlogAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
+        {
+            Result<BlogListModel> response;
+
+            try
+            {
+                if(pageNo <= 0)
+                {
+                    response = Result<BlogListModel>.Fail(MessageResource.InvalidPageNo);
+                    goto result;
+                }
+
+                if(pageSize <= 0)
+                {
+                    response = Result<BlogListModel>.Fail(MessageResource.InvalidPageSize); 
+                    goto result;
+                }
+                response = await _dA_Blog.GetBlogsAsync(pageNo,pageSize, cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                response = Result<BlogListModel>.Failure(ex);
+            }
+        result:
+            return response;
+        }
+
     }
 }
