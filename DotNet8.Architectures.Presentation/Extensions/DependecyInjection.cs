@@ -22,6 +22,10 @@ namespace DotNet8.Architectures.Presentation.Extensions
             return services;
         }
 
-      
+        private static IServiceCollection AddDataAccessService(this IServiceCollection services)
+        {
+            return services.AddScoped<DA_Blog>();
+        }
+
     }
 }
