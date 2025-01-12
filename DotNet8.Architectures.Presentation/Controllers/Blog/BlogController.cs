@@ -41,5 +41,12 @@ namespace DotNet8.Architectures.Presentation.Controllers.Blog
             var result = await _bL_Blog.UpdateBlogAsync(id, blogRequest, cancellationToken); 
             return Content(result);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteBlogAsync(int id, CancellationToken cancellationToken)
+        {
+            var result = await _bL_Blog.DeleteBlogAsync(id, cancellationToken);
+            return Content(result);
+        }
     }
 }
