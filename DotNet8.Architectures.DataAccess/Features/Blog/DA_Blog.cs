@@ -138,6 +138,8 @@ public class DA_Blog
 
     #endregion
 
+    #region UpdateBlogAsync
+
     public async Task<Result<BlogModel>> UpdateBlogAsync(int id , BlogRequestModel blogRequest, CancellationToken cancellationToken)
     {
         Result<BlogModel> response;
@@ -171,6 +173,8 @@ public class DA_Blog
     result:
         return response;
     }
+
+    #endregion
 
     public async Task<Result<BlogModel>> PatchBlogAsync(BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
     {
