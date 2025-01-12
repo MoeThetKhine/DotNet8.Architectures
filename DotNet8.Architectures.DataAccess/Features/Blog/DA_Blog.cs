@@ -2,6 +2,7 @@
 using DotNet8.Architectures.DTO.Features.Blog;
 using DotNet8.Architectures.DTO.PageSetting;
 using DotNet8.Architectures.Extensions;
+using DotNet8.Architectures.Shared;
 using DotNet8.Architectures.Utils;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -165,6 +166,47 @@ namespace DotNet8.Architectures.DataAccess.Features.Blog
                 response= Result<BlogModel>.Failure(ex);
             }
         result:
+            return response;
+        }
+
+        public async Task<Result<BlogModel>> PatchBlogAsync(BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
+        {
+            Result<BlogModel> response;
+
+            try
+            {
+                var blog = await _context.TblBlogs.FindAsync([id , cancellationToken],
+                    cancellationToken : cancellationToken);
+
+                if(blog is null)
+                {
+                    response = Result<BlogModel>.NotFound ();
+                    goto result;
+                }
+
+                if(!requestModel.BlogTitle.IsNullOrEmpty())
+                {
+                    blog.BlogTitle = requestModel.BlogTitle;
+                }
+                if (!requestModel.BlogAuthor.IsNullOrEmpty())
+                {
+                    blog.BlogAuthor= requestModel.BlogAuthor;
+                }
+                if(!requestModel.BlogContent.IsNullOrEmpty())
+                {
+                    blog.BlogContent= requestModel.BlogContent;
+                }
+
+                _context.TblBlogs.Update(blog);
+                await _context.SaveChangesAsync(cancellationToken);
+
+                response = Result<BlogModel>.UpdateSuccess();
+            }
+            catch(Exception ex)
+            {
+                response = Result<BlogModel>.Failure(ex);
+            }
+            result:
             return response;
         }
 
