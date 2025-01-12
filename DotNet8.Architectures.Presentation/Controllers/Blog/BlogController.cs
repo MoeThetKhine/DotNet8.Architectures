@@ -27,5 +27,12 @@ namespace DotNet8.Architectures.Presentation.Controllers.Blog
             var result = await _bL_Blog.AddBlogAsync(blogRequest, cancellationToken);
             return Content(result);
         }
+
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PatchBlogAsync([FromBody] int id , BlogRequestModel blogRequest, CancellationToken cancellationToken)
+        {
+            var result = await _bL_Blog.PatchBlogAsync(id, blogRequest, cancellationToken);
+            return Content(result);
+        }
     }
 }
