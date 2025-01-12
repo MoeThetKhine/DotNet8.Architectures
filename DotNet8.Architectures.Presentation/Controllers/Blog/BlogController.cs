@@ -10,12 +10,17 @@ public class BlogController : BaseController
     {
         _bL_Blog = bL_Blog;
     }
+
+    #region GetBlogAsync
+
     [HttpGet]
     public async Task<IActionResult> GetBlogAsync(int pageNo, int pageSize , CancellationToken cancellationToken)
     {
         var result = await _bL_Blog.GetBlogAsync(pageNo, pageSize, cancellationToken);
         return Content(result);
     }
+
+    #endregion
 
     [HttpPost]
     public async Task<IActionResult> CreateBlogAsync([FromBody] BlogRequestModel blogRequest, CancellationToken cancellationToken)
