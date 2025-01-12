@@ -31,5 +31,10 @@ namespace DotNet8.Architectures.Presentation.Extensions
         {
             return services.AddScoped<BL_Blog>();
         }
+
+        private static IServiceCollection AddValidorService(this IServiceCollection services)
+        {
+            return services.AddScoped<BlogValidator>();
+        }
     }
 }
