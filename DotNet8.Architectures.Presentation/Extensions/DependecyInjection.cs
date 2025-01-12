@@ -1,10 +1,4 @@
-﻿using DotNet8.Architectures.BusinessLogic.Features.Blog;
-using DotNet8.Architectures.DataAccess.Features.Blog;
-using DotNet8.Architectures.DbServices.Models;
-using DotNet8.Architectures.Shared;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.Architectures.Presentation.Extensions;
+﻿namespace DotNet8.Architectures.Presentation.Extensions;
 
 public static class DependecyInjection
 {
