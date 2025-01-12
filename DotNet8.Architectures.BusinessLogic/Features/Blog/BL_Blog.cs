@@ -42,6 +42,8 @@ public class BL_Blog
 
     #endregion
 
+    #region GetBlogByIdAsync
+
     public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
     {
         Result<BlogModel> response;
@@ -63,6 +65,8 @@ public class BL_Blog
     result:
         return response;
     }
+
+    #endregion
 
     public async Task<Result<BlogModel>> AddBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
     {
