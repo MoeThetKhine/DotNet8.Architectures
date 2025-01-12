@@ -22,12 +22,16 @@ public class BlogController : BaseController
 
     #endregion
 
+    #region CreateBlogAsync
+
     [HttpPost]
     public async Task<IActionResult> CreateBlogAsync([FromBody] BlogRequestModel blogRequest, CancellationToken cancellationToken)
     {
         var result = await _bL_Blog.AddBlogAsync(blogRequest, cancellationToken);
         return Content(result);
     }
+
+    #endregion
 
     [HttpPatch("{id}")]
     public async Task<IActionResult> PatchBlogAsync([FromBody] int id , BlogRequestModel blogRequest, CancellationToken cancellationToken)
