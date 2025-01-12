@@ -1,6 +1,4 @@
 ﻿using DotNet8.Architectures.DTO.Features.Blog;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.Architectures.Presentation.Controllers.Blog
 {
