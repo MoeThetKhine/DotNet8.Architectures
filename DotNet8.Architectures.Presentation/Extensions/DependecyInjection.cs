@@ -16,6 +16,8 @@ public static class DependecyInjection
 
     #endregion
 
+    #region AddDbContextService
+
     private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
     {
         builder.Services.AddDbContext<AppDbContext>(opt =>
@@ -28,6 +30,8 @@ public static class DependecyInjection
 
         return services;
     }
+
+    #endregion
 
     private static IServiceCollection AddDataAccessService(this IServiceCollection services)
     {
