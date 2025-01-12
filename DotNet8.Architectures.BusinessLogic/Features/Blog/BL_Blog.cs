@@ -1,161 +1,160 @@
-﻿namespace DotNet8.Architectures.BusinessLogic.Features.Blog
+﻿namespace DotNet8.Architectures.BusinessLogic.Features.Blog;
+
+public class BL_Blog
 {
-    public class BL_Blog
+    private readonly DA_Blog _dA_Blog;
+    private readonly BlogValidator _blogValidator;
+
+    public BL_Blog(DA_Blog dA_Blog, BlogValidator blogValidator)
     {
-        private readonly DA_Blog _dA_Blog;
-        private readonly BlogValidator _blogValidator;
+        _dA_Blog = dA_Blog;
+        _blogValidator = blogValidator;
+    }
 
-        public BL_Blog(DA_Blog dA_Blog, BlogValidator blogValidator)
+    public async Task<Result<BlogListModel>> GetBlogAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
+    {
+        Result<BlogListModel> response;
+
+        try
         {
-            _dA_Blog = dA_Blog;
-            _blogValidator = blogValidator;
-        }
+            if(pageNo <= 0)
+            {
+                response = Result<BlogListModel>.Fail(MessageResource.InvalidPageNo);
+                goto result;
+            }
 
-        public async Task<Result<BlogListModel>> GetBlogAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
+            if(pageSize <= 0)
+            {
+                response = Result<BlogListModel>.Fail(MessageResource.InvalidPageSize); 
+                goto result;
+            }
+            response = await _dA_Blog.GetBlogsAsync(pageNo,pageSize, cancellationToken);
+        }
+        catch (Exception ex)
         {
-            Result<BlogListModel> response;
-
-            try
-            {
-                if(pageNo <= 0)
-                {
-                    response = Result<BlogListModel>.Fail(MessageResource.InvalidPageNo);
-                    goto result;
-                }
-
-                if(pageSize <= 0)
-                {
-                    response = Result<BlogListModel>.Fail(MessageResource.InvalidPageSize); 
-                    goto result;
-                }
-                response = await _dA_Blog.GetBlogsAsync(pageNo,pageSize, cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                response = Result<BlogListModel>.Failure(ex);
-            }
-        result:
-            return response;
+            response = Result<BlogListModel>.Failure(ex);
         }
+    result:
+        return response;
+    }
 
-        public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
+    public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
         {
-            Result<BlogModel> response;
-
-            try
+            if(id <= 0)
             {
-                if(id <= 0)
-                {
-                    response = Result<BlogModel>.Fail(MessageResource.InvalidId);
-                    goto result;
-                }
+                response = Result<BlogModel>.Fail(MessageResource.InvalidId);
+                goto result;
+            }
 
-                response = await _dA_Blog.GetBlogByIdAsync(id, cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-        result:
-            return response;
+            response = await _dA_Blog.GetBlogByIdAsync(id, cancellationToken);
         }
-
-        public async Task<Result<BlogModel>> AddBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
+        catch (Exception ex)
         {
-            Result<BlogModel> response;
-
-            try
-            {
-                var validationResult = await _blogValidator.ValidateAsync(blogRequest);
-                if (!validationResult.IsValid)
-                {
-                    string errors = string.Join("", validationResult.Errors.Select(x => x.ErrorMessage));
-                    response = Result<BlogModel>.Fail($"Error: {errors}");
-                    goto result;
-                }
-
-                response = await _dA_Blog.AddBlogAsync(blogRequest, cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-        result:
-            return response;
+            response = Result<BlogModel>.Failure(ex);
         }
+    result:
+        return response;
+    }
 
-        public async Task<Result<BlogModel>> UpdateBlogAsync(int id ,BlogRequestModel blogRequest, CancellationToken cancellationToken)
+    public async Task<Result<BlogModel>> AddBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
         {
-            Result<BlogModel> response;
-
-            try
+            var validationResult = await _blogValidator.ValidateAsync(blogRequest);
+            if (!validationResult.IsValid)
             {
-                var validationResult = await _blogValidator.ValidateAsync(blogRequest);
-                if (!validationResult.IsValid)
-                {
-                    string errors = string.Join("", validationResult.Errors.Select(x => x.ErrorMessage));
-                    response = Result<BlogModel>.Fail(errors);
-                    goto result;
-                }
-
-                if(id <= 0)
-                {
-                    response = Result<BlogModel>.Fail(MessageResource.InvalidId);
-                    goto result;
-                }
-
-                response = await _dA_Blog.UpdateBlogAsync(id , blogRequest, cancellationToken);
+                string errors = string.Join("", validationResult.Errors.Select(x => x.ErrorMessage));
+                response = Result<BlogModel>.Fail($"Error: {errors}");
+                goto result;
             }
-            catch (Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-        result:
-            return response;
+
+            response = await _dA_Blog.AddBlogAsync(blogRequest, cancellationToken);
         }
-
-        public async Task<Result<BlogModel>> PatchBlogAsync(int id , BlogRequestModel blogRequest, CancellationToken cancellationToken)
+        catch (Exception ex)
         {
-            Result<BlogModel> response;
-
-            try
-            {
-                if(id <= 0)
-                {
-                    response = Result<BlogModel>.Fail(MessageResource.InvalidId);
-                    goto result;
-                }
-
-                response = await _dA_Blog.PatchBlogAsync(blogRequest, id, cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-        result:
-            return response;
+            response = Result<BlogModel>.Failure(ex);
         }
+    result:
+        return response;
+    }
 
-        public async Task<Result<BlogModel>> DeleteBlogAsync(int id, CancellationToken cancellationToken)
+    public async Task<Result<BlogModel>> UpdateBlogAsync(int id ,BlogRequestModel blogRequest, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
         {
-            Result<BlogModel> response;
-
-            try
+            var validationResult = await _blogValidator.ValidateAsync(blogRequest);
+            if (!validationResult.IsValid)
             {
-                if(id <= 0)
-                {
-                    response = Result<BlogModel>.Fail(MessageResource.InvalidId);
-                    goto result;
-                }
+                string errors = string.Join("", validationResult.Errors.Select(x => x.ErrorMessage));
+                response = Result<BlogModel>.Fail(errors);
+                goto result;
+            }
 
-                response = await _dA_Blog.DeleteBlogAsync(id, cancellationToken);   
-            }
-            catch (Exception ex)
+            if(id <= 0)
             {
-                response = Result<BlogModel>.Failure(ex);
+                response = Result<BlogModel>.Fail(MessageResource.InvalidId);
+                goto result;
             }
-        result:
-            return response;
+
+            response = await _dA_Blog.UpdateBlogAsync(id , blogRequest, cancellationToken);
         }
+        catch (Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+    result:
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> PatchBlogAsync(int id , BlogRequestModel blogRequest, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            if(id <= 0)
+            {
+                response = Result<BlogModel>.Fail(MessageResource.InvalidId);
+                goto result;
+            }
+
+            response = await _dA_Blog.PatchBlogAsync(blogRequest, id, cancellationToken);
+        }
+        catch (Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+    result:
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> DeleteBlogAsync(int id, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            if(id <= 0)
+            {
+                response = Result<BlogModel>.Fail(MessageResource.InvalidId);
+                goto result;
+            }
+
+            response = await _dA_Blog.DeleteBlogAsync(id, cancellationToken);   
+        }
+        catch (Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+    result:
+        return response;
     }
 }
