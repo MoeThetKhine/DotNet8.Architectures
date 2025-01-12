@@ -1,5 +1,7 @@
 ﻿namespace DotNet8.Architectures.Presentation.Extensions;
 
+#region DependecyInjection
+
 public static class DependecyInjection
 {
 
@@ -60,3 +62,6 @@ public static class DependecyInjection
 
     #endregion
 }
+
+
+#endregion
