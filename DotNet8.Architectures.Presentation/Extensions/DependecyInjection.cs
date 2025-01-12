@@ -51,8 +51,12 @@ public static class DependecyInjection
 
     #endregion
 
+    #region AddValidorService
+
     private static IServiceCollection AddValidorService(this IServiceCollection services)
     {
         return services.AddScoped<BlogValidator>();
     }
+
+    #endregion
 }
