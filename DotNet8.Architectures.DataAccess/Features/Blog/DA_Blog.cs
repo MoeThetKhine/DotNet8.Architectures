@@ -1,231 +1,230 @@
-﻿namespace DotNet8.Architectures.DataAccess.Features.Blog
+﻿namespace DotNet8.Architectures.DataAccess.Features.Blog;
+
+public class DA_Blog
 {
-    public class DA_Blog
+    private readonly AppDbContext _context;
+
+    public DA_Blog(AppDbContext context)
     {
-        private readonly AppDbContext _context;
-
-        public DA_Blog(AppDbContext context)
-        {
-            _context = context;
-        }
-
-        public async Task<Result<BlogListModel>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
-        {
-            Result<BlogListModel> response;
-
-            try
-            {
-                var query = _context.TblBlogs.OrderByDescending(x => x.BlogId);
-                var lst = await query
-                    .Skip((pageNo - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToListAsync(cancellationToken);
-
-                var totalCount = await query.CountAsync(cancellationToken);
-                var pageCount = totalCount / pageSize;
-
-                if(totalCount % pageSize > 0)
-                {
-                    pageCount++;
-                }
-
-                var pageSettingModel = new PageSettingModel(pageNo, pageSize, pageCount, totalCount);
-                response = Result<BlogListModel>.Success(
-                    new BlogListModel
-                    {
-                        DataLst = lst.Select(x => x.ToModel()),
-                        PageSetting = pageSettingModel
-                    });
-            }
-            catch(Exception ex)
-            {
-                response = Result<BlogListModel>.Failure(ex);
-            }
-            return response;
-        }
-
-        public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
-        {
-            Result<BlogModel> response;
-
-            try
-            {
-                var blog = await _context.TblBlogs.FindAsync(
-                    [id],
-                    cancellationToken: cancellationToken
-                    );
-                if(blog is null)
-                {
-                    response = Result<BlogModel>.NotFound("Blog Not Found");
-                    goto result;
-                }
-
-                response = Result<BlogModel>.Success(blog.ToModel());
-            }
-            catch(Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-
-            result:
-            return response;
-        }
-
-        public async Task<Result<BlogModel>> UpdateBlogAsync(BlogRequestModel blogRequest, int id, CancellationToken cancellationToken)
-        {
-            Result<BlogModel> response;
-
-            try
-            {
-                var blog = await _context.TblBlogs
-                    .FirstOrDefaultAsync(x => x.BlogId == id,
-                    cancellationToken: cancellationToken);
-
-                if(blog is null)
-                {
-                    response = Result<BlogModel>.NotFound();
-                    goto result;
-                }
-
-                blog.BlogTitle = blogRequest.BlogTitle;
-                blog.BlogAuthor = blogRequest.BlogAuthor;
-                blog.BlogContent = blogRequest.BlogContent;
-
-                _context.TblBlogs.Update(blog);
-                await _context.SaveChangesAsync(cancellationToken);
-
-                response = Result<BlogModel>.SaveSuccess();
-            }
-            catch(Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-        result:
-            return response;
-        }
-
-        public async Task<Result<BlogModel>> AddBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
-        {
-            Result<BlogModel> response;
-
-            try
-            {
-                await _context.TblBlogs.AddAsync(blogRequest.ToEntity(), cancellationToken: cancellationToken);
-                await _context.SaveChangesAsync(cancellationToken);
-
-                response = Result<BlogModel>.SaveSuccess();
-            }
-            catch(Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-            return response;
-        }
-
-        public async Task<Result<BlogModel>> UpdateBlogAsync(int id , BlogRequestModel blogRequest, CancellationToken cancellationToken)
-        {
-            Result<BlogModel> response;
-
-            try
-            {
-                var blog = await _context
-                    .TblBlogs
-                    .FirstOrDefaultAsync(x => x.BlogId == id,
-                    cancellationToken: cancellationToken);
-
-                if(blog is null)
-                {
-                    response = Result<BlogModel>.NotFound();
-                    goto result;
-                }
-
-                blog.BlogTitle = blogRequest.BlogTitle;
-                blog.BlogAuthor = blogRequest.BlogAuthor;
-                blog.BlogContent = blogRequest.BlogContent;
-
-                _context.TblBlogs.Update(blog);
-                await _context.SaveChangesAsync(cancellationToken);
-
-                response = Result<BlogModel>.UpdateSuccess();
-            }
-            catch(Exception ex)
-            {
-                response= Result<BlogModel>.Failure(ex);
-            }
-        result:
-            return response;
-        }
-
-        public async Task<Result<BlogModel>> PatchBlogAsync(BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
-        {
-            Result<BlogModel> response;
-
-            try
-            {
-                var blog = await _context.TblBlogs.FindAsync([id , cancellationToken],
-                    cancellationToken : cancellationToken);
-
-                if(blog is null)
-                {
-                    response = Result<BlogModel>.NotFound ();
-                    goto result;
-                }
-
-                if(!requestModel.BlogTitle.IsNullOrEmpty())
-                {
-                    blog.BlogTitle = requestModel.BlogTitle;
-                }
-                if (!requestModel.BlogAuthor.IsNullOrEmpty())
-                {
-                    blog.BlogAuthor= requestModel.BlogAuthor;
-                }
-                if(!requestModel.BlogContent.IsNullOrEmpty())
-                {
-                    blog.BlogContent= requestModel.BlogContent;
-                }
-
-                _context.TblBlogs.Update(blog);
-                await _context.SaveChangesAsync(cancellationToken);
-
-                response = Result<BlogModel>.UpdateSuccess();
-            }
-            catch(Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-            result:
-            return response;
-        }
-
-        public async Task<Result<BlogModel>> DeleteBlogAsync(int id, CancellationToken cancellationToken)
-        {
-            Result<BlogModel> response;
-
-            try
-            {
-                var blog = await _context
-                    .TblBlogs
-                    .FirstOrDefaultAsync(x => x.BlogId == id, cancellationToken: cancellationToken);
-
-                if(blog is null)
-                {
-                    response = Result<BlogModel>.NotFound ();
-                    goto result;
-                }
-
-                _context.TblBlogs .Remove(blog);
-                await _context.SaveChangesAsync(cancellationToken);
-
-                response=Result<BlogModel>.UpdateSuccess();
-                    
-            }
-            catch(Exception ex)
-            {
-                response = Result<BlogModel>.Failure(ex);
-            }
-            result:
-            return response;
-        }
-
+        _context = context;
     }
+
+    public async Task<Result<BlogListModel>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
+    {
+        Result<BlogListModel> response;
+
+        try
+        {
+            var query = _context.TblBlogs.OrderByDescending(x => x.BlogId);
+            var lst = await query
+                .Skip((pageNo - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync(cancellationToken);
+
+            var totalCount = await query.CountAsync(cancellationToken);
+            var pageCount = totalCount / pageSize;
+
+            if(totalCount % pageSize > 0)
+            {
+                pageCount++;
+            }
+
+            var pageSettingModel = new PageSettingModel(pageNo, pageSize, pageCount, totalCount);
+            response = Result<BlogListModel>.Success(
+                new BlogListModel
+                {
+                    DataLst = lst.Select(x => x.ToModel()),
+                    PageSetting = pageSettingModel
+                });
+        }
+        catch(Exception ex)
+        {
+            response = Result<BlogListModel>.Failure(ex);
+        }
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            var blog = await _context.TblBlogs.FindAsync(
+                [id],
+                cancellationToken: cancellationToken
+                );
+            if(blog is null)
+            {
+                response = Result<BlogModel>.NotFound("Blog Not Found");
+                goto result;
+            }
+
+            response = Result<BlogModel>.Success(blog.ToModel());
+        }
+        catch(Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+
+        result:
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> UpdateBlogAsync(BlogRequestModel blogRequest, int id, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            var blog = await _context.TblBlogs
+                .FirstOrDefaultAsync(x => x.BlogId == id,
+                cancellationToken: cancellationToken);
+
+            if(blog is null)
+            {
+                response = Result<BlogModel>.NotFound();
+                goto result;
+            }
+
+            blog.BlogTitle = blogRequest.BlogTitle;
+            blog.BlogAuthor = blogRequest.BlogAuthor;
+            blog.BlogContent = blogRequest.BlogContent;
+
+            _context.TblBlogs.Update(blog);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            response = Result<BlogModel>.SaveSuccess();
+        }
+        catch(Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+    result:
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> AddBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            await _context.TblBlogs.AddAsync(blogRequest.ToEntity(), cancellationToken: cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            response = Result<BlogModel>.SaveSuccess();
+        }
+        catch(Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> UpdateBlogAsync(int id , BlogRequestModel blogRequest, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            var blog = await _context
+                .TblBlogs
+                .FirstOrDefaultAsync(x => x.BlogId == id,
+                cancellationToken: cancellationToken);
+
+            if(blog is null)
+            {
+                response = Result<BlogModel>.NotFound();
+                goto result;
+            }
+
+            blog.BlogTitle = blogRequest.BlogTitle;
+            blog.BlogAuthor = blogRequest.BlogAuthor;
+            blog.BlogContent = blogRequest.BlogContent;
+
+            _context.TblBlogs.Update(blog);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            response = Result<BlogModel>.UpdateSuccess();
+        }
+        catch(Exception ex)
+        {
+            response= Result<BlogModel>.Failure(ex);
+        }
+    result:
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> PatchBlogAsync(BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            var blog = await _context.TblBlogs.FindAsync([id , cancellationToken],
+                cancellationToken : cancellationToken);
+
+            if(blog is null)
+            {
+                response = Result<BlogModel>.NotFound ();
+                goto result;
+            }
+
+            if(!requestModel.BlogTitle.IsNullOrEmpty())
+            {
+                blog.BlogTitle = requestModel.BlogTitle;
+            }
+            if (!requestModel.BlogAuthor.IsNullOrEmpty())
+            {
+                blog.BlogAuthor= requestModel.BlogAuthor;
+            }
+            if(!requestModel.BlogContent.IsNullOrEmpty())
+            {
+                blog.BlogContent= requestModel.BlogContent;
+            }
+
+            _context.TblBlogs.Update(blog);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            response = Result<BlogModel>.UpdateSuccess();
+        }
+        catch(Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+        result:
+        return response;
+    }
+
+    public async Task<Result<BlogModel>> DeleteBlogAsync(int id, CancellationToken cancellationToken)
+    {
+        Result<BlogModel> response;
+
+        try
+        {
+            var blog = await _context
+                .TblBlogs
+                .FirstOrDefaultAsync(x => x.BlogId == id, cancellationToken: cancellationToken);
+
+            if(blog is null)
+            {
+                response = Result<BlogModel>.NotFound ();
+                goto result;
+            }
+
+            _context.TblBlogs .Remove(blog);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            response=Result<BlogModel>.UpdateSuccess();
+                
+        }
+        catch(Exception ex)
+        {
+            response = Result<BlogModel>.Failure(ex);
+        }
+        result:
+        return response;
+    }
+
 }
