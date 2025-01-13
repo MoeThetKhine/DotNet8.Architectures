@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNet8.Architectures.Clean.Domain\DotNet8.Architectures.Clean.Domain.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.DTO\DotNet8.Architectures.DTO.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Shared\DotNet8.Architectures.Shared.csproj" />
   </ItemGroup>
 
 </Project>
