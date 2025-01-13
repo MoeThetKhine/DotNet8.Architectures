@@ -1,6 +1,13 @@
+using DotNet8.Architectures.Presentation.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 builder.Services.AddControllers();
+
+builder.Services.AddDependencyInjection(builder);
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
