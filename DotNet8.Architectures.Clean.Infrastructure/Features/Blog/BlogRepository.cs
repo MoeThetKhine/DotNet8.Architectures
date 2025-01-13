@@ -1,53 +1,52 @@
-﻿namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
+﻿namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
+
+public class BlogRepository
 {
-    public class BlogRepository
+    private readonly BlogDbContext _context;
+
+    public BlogRepository(BlogDbContext context)
     {
-        private readonly BlogDbContext _context;
+        _context = context;
+    }
 
-        public BlogRepository(BlogDbContext context)
+    public async Task<Result<BlogListModelV1>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
+    {
+        Result<BlogListModelV1> result;
+
+        try
         {
-            _context = context;
-        }
+            var query = _context.Tbl_Blogs.OrderByDescending(x => x.BlogId);
+            var lst = await query.Paginate(pageNo, pageSize)
+                                 .ToListAsync(cancellationToken : cancellationToken);
+            
+            var totalCount = await query.CountAsync(cancellationToken : cancellationToken);
+            var pageCount = totalCount / pageSize;
 
-        public async Task<Result<BlogListModelV1>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
-        {
-            Result<BlogListModelV1> result;
-
-            try
+            if(totalCount % pageSize == 0)
             {
-                var query = _context.Tbl_Blogs.OrderByDescending(x => x.BlogId);
-                var lst = await query.Paginate(pageNo, pageSize)
-                                     .ToListAsync(cancellationToken : cancellationToken);
-                
-                var totalCount = await query.CountAsync(cancellationToken : cancellationToken);
-                var pageCount = totalCount / pageSize;
-
-                if(totalCount % pageSize == 0)
-                {
-                    pageCount++;
-                }
-
-                var pageSettingModel = new PageSettingModel(pageNo, pageSize, pageCount, totalCount);
-                var model = new BlogListModelV1()
-                {
-                    DataLst = lst.Select(x => new BlogModel()
-                    {
-                        BlogId = x.BlogId,
-                        BlogTitle = x.BlogTitle,
-                        BlogAuthor = x.BlogAuthor,
-                        BlogContent = x.BlogContent
-                    })
-                        .AsQueryable(),
-                    PageSetting = pageSettingModel
-                };
-                result = Result<BlogListModelV1>.Success(model);
-            }
-            catch (Exception ex)
-            {
-                result = Result<BlogListModelV1>.Failure(ex);
+                pageCount++;
             }
 
-            return result;
+            var pageSettingModel = new PageSettingModel(pageNo, pageSize, pageCount, totalCount);
+            var model = new BlogListModelV1()
+            {
+                DataLst = lst.Select(x => new BlogModel()
+                {
+                    BlogId = x.BlogId,
+                    BlogTitle = x.BlogTitle,
+                    BlogAuthor = x.BlogAuthor,
+                    BlogContent = x.BlogContent
+                })
+                    .AsQueryable(),
+                PageSetting = pageSettingModel
+            };
+            result = Result<BlogListModelV1>.Success(model);
         }
+        catch (Exception ex)
+        {
+            result = Result<BlogListModelV1>.Failure(ex);
+        }
+
+        return result;
     }
 }
