@@ -2,6 +2,8 @@
 
 namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 
+#region BlogDbContext
+
 public class BlogDbContext : DbContext
 {
     public BlogDbContext(DbContextOptions options)
@@ -9,3 +11,5 @@ public class BlogDbContext : DbContext
 
     public DbSet<Tbl_Blog> Tbl_Blogs { get; set; }
 }
+
+#endregion
