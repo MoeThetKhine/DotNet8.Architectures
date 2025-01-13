@@ -9,5 +9,4 @@ namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
 
         public DbSet<Tbl_Blog> Tbl_Blogs { get; set; }
     }
-
 }
