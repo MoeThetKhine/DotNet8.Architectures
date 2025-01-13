@@ -4,7 +4,11 @@
 
 public interface IBlogRepository
 {
-    Task <Result<BlogListModelV1>> GetBlogAsync(int pageNo, int pageSize, CancellationToken cancellationToken);
+    Task<Result<BlogListModelV1>> GetBlogsAsync(
+        int pageNo,
+        int pageSize,
+        CancellationToken cancellationToken
+    );
 }
 
 #endregion
