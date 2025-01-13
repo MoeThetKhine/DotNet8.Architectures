@@ -1,6 +1,6 @@
 ﻿namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 
-public class BlogRepository
+public class BlogRepository : IBlogRepository
 {
     private readonly BlogDbContext _context;
 
