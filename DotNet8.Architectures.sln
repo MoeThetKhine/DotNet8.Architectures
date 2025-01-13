@@ -7,23 +7,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NLayer", "NLayer", "{50E790
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{4C3522FC-2863-4ED3-8127-1122755F1C68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.DbServices", "DotNet8.Architectures.DbServices\DotNet8.Architectures.DbServices.csproj", "{FA410D34-75BC-4D89-BD7D-4AA7EE076945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.DbServices", "DotNet8.Architectures.DbServices\DotNet8.Architectures.DbServices.csproj", "{FA410D34-75BC-4D89-BD7D-4AA7EE076945}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.DTO", "DotNet8.Architectures.DTO\DotNet8.Architectures.DTO.csproj", "{9166C656-BDA2-4FCA-95B8-DC5D70479332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.DTO", "DotNet8.Architectures.DTO\DotNet8.Architectures.DTO.csproj", "{9166C656-BDA2-4FCA-95B8-DC5D70479332}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Extensions", "DotNet8.Architectures.Extensions\DotNet8.Architectures.Extensions.csproj", "{388D1B0B-DC80-4B1B-9151-895721C636A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.Extensions", "DotNet8.Architectures.Extensions\DotNet8.Architectures.Extensions.csproj", "{388D1B0B-DC80-4B1B-9151-895721C636A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Shared", "DotNet8.Architectures.Shared\DotNet8.Architectures.Shared.csproj", "{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.Shared", "DotNet8.Architectures.Shared\DotNet8.Architectures.Shared.csproj", "{CF1A84DE-0D2A-480A-8AF1-5E1A1538D655}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Utils", "DotNet8.Architectures.Utils\DotNet8.Architectures.Utils.csproj", "{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.Utils", "DotNet8.Architectures.Utils\DotNet8.Architectures.Utils.csproj", "{6BFCF980-CFF7-4B9D-BE55-A07A9EB1FDE9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8A65EF86-8256-4B93-90E6-DF19B848426D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.BusinessLogic", "DotNet8.Architectures.BusinessLogic\DotNet8.Architectures.BusinessLogic.csproj", "{1EB2FBF7-63E9-40FB-A894-E051F20A1F13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.BusinessLogic", "DotNet8.Architectures.BusinessLogic\DotNet8.Architectures.BusinessLogic.csproj", "{1EB2FBF7-63E9-40FB-A894-E051F20A1F13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.DataAccess", "DotNet8.Architectures.DataAccess\DotNet8.Architectures.DataAccess.csproj", "{4856798D-246A-4D2B-B02C-DBAC282DAF14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.DataAccess", "DotNet8.Architectures.DataAccess\DotNet8.Architectures.DataAccess.csproj", "{4856798D-246A-4D2B-B02C-DBAC282DAF14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Presentation", "DotNet8.Architectures.Presentation\DotNet8.Architectures.Presentation.csproj", "{8C2EA124-4462-4DE0-8D18-17058AEBC7D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNet8.Architectures.Presentation", "DotNet8.Architectures.Presentation\DotNet8.Architectures.Presentation.csproj", "{8C2EA124-4462-4DE0-8D18-17058AEBC7D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clean", "Clean", "{0C72B530-C830-4959-8A53-2FE5EB5C1A95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F04D1E1E-6C5B-4DB9-905A-85F044E0434D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Clean.Application", "DotNet8.Architectures.Clean.Application\DotNet8.Architectures.Clean.Application.csproj", "{7DE79A22-9143-43CE-92A0-80680F20FACB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Clean.Domain", "DotNet8.Architectures.Clean.Domain\DotNet8.Architectures.Clean.Domain.csproj", "{EE89C6D8-705C-485A-8349-47726CDDA893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Clean.Infrastructure", "DotNet8.Architectures.Clean.Infrastructure\DotNet8.Architectures.Clean.Infrastructure.csproj", "{4400380B-33BE-4189-AB20-871422DDFACA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Clean.Presentation", "DotNet8.Architectures.Clean.Presentation\DotNet8.Architectures.Clean.Presentation.csproj", "{2C6E2657-91C5-413D-9390-8DA3126AEFD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +75,22 @@ Global
 		{8C2EA124-4462-4DE0-8D18-17058AEBC7D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C2EA124-4462-4DE0-8D18-17058AEBC7D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C2EA124-4462-4DE0-8D18-17058AEBC7D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE79A22-9143-43CE-92A0-80680F20FACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE79A22-9143-43CE-92A0-80680F20FACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE79A22-9143-43CE-92A0-80680F20FACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE79A22-9143-43CE-92A0-80680F20FACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE89C6D8-705C-485A-8349-47726CDDA893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE89C6D8-705C-485A-8349-47726CDDA893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE89C6D8-705C-485A-8349-47726CDDA893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE89C6D8-705C-485A-8349-47726CDDA893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4400380B-33BE-4189-AB20-871422DDFACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4400380B-33BE-4189-AB20-871422DDFACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4400380B-33BE-4189-AB20-871422DDFACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4400380B-33BE-4189-AB20-871422DDFACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C6E2657-91C5-413D-9390-8DA3126AEFD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C6E2657-91C5-413D-9390-8DA3126AEFD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C6E2657-91C5-413D-9390-8DA3126AEFD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C6E2657-91C5-413D-9390-8DA3126AEFD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +105,11 @@ Global
 		{1EB2FBF7-63E9-40FB-A894-E051F20A1F13} = {8A65EF86-8256-4B93-90E6-DF19B848426D}
 		{4856798D-246A-4D2B-B02C-DBAC282DAF14} = {8A65EF86-8256-4B93-90E6-DF19B848426D}
 		{8C2EA124-4462-4DE0-8D18-17058AEBC7D3} = {8A65EF86-8256-4B93-90E6-DF19B848426D}
+		{F04D1E1E-6C5B-4DB9-905A-85F044E0434D} = {0C72B530-C830-4959-8A53-2FE5EB5C1A95}
+		{7DE79A22-9143-43CE-92A0-80680F20FACB} = {F04D1E1E-6C5B-4DB9-905A-85F044E0434D}
+		{EE89C6D8-705C-485A-8349-47726CDDA893} = {F04D1E1E-6C5B-4DB9-905A-85F044E0434D}
+		{4400380B-33BE-4189-AB20-871422DDFACA} = {F04D1E1E-6C5B-4DB9-905A-85F044E0434D}
+		{2C6E2657-91C5-413D-9390-8DA3126AEFD3} = {F04D1E1E-6C5B-4DB9-905A-85F044E0434D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D362481D-50CA-49BC-A186-88FE1DA3F994}
