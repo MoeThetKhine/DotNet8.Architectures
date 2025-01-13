@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.Clean.Domain.Features.Blog;
-
-namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
+﻿namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 
 #region BlogDbContext
 
