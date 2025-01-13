@@ -1,8 +1,7 @@
-﻿namespace DotNet8.Architectures.Clean.Domain.Features.Blog
+﻿namespace DotNet8.Architectures.Clean.Domain.Features.Blog;
+
+public interface IBlogRepository
 {
-    public interface IBlogRepository
-    {
-        Task <Result<BlogListModelV1>> GetBlogAsync(int pageNo, int pageSize, CancellationToken cancellationToken);
-        
-    }
+    Task <Result<BlogListModelV1>> GetBlogAsync(int pageNo, int pageSize, CancellationToken cancellationToken);
+    
 }
