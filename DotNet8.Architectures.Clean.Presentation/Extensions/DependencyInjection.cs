@@ -2,45 +2,44 @@
 using DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 using Microsoft.EntityFrameworkCore;
 
-namespace DotNet8.Architectures.Clean.Presentation.Extensions
+namespace DotNet8.Architectures.Clean.Presentation.Extensions;
+
+public static class DependencyInjection
 {
-    public static class DependencyInjection
+
+    #region AddDependencyInjection
+
+    public static IServiceCollection AddDependencyInjection(this IServiceCollection services,WebApplicationBuilder builder)
     {
-
-        #region AddDependencyInjection
-
-        public static IServiceCollection AddDependencyInjection(this IServiceCollection services,WebApplicationBuilder builder)
-        {
-            return services.AddDbContextService(builder).AddRepositoryService();
-        }
-
-        #endregion
-
-        #region AddDbContextService
-
-        private static IServiceCollection AddDbContextService(this IServiceCollection services,WebApplicationBuilder builder)
-        {
-            builder.Services.AddDbContext<BlogDbContext>(
-            opt =>
-            {
-                opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")!);
-                opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            },
-            ServiceLifetime.Transient);
-
-            return services;
-        }
-
-        #endregion
-
-        #region AddRepositoryService
-
-        private static IServiceCollection AddRepositoryService(this IServiceCollection services)
-        {
-            return services.AddScoped<IBlogRepository, BlogRepository>();
-        }
-
-        #endregion
-
+        return services.AddDbContextService(builder).AddRepositoryService();
     }
+
+    #endregion
+
+    #region AddDbContextService
+
+    private static IServiceCollection AddDbContextService(this IServiceCollection services,WebApplicationBuilder builder)
+    {
+        builder.Services.AddDbContext<BlogDbContext>(
+        opt =>
+        {
+            opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")!);
+            opt.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+        },
+        ServiceLifetime.Transient);
+
+        return services;
+    }
+
+    #endregion
+
+    #region AddRepositoryService
+
+    private static IServiceCollection AddRepositoryService(this IServiceCollection services)
+    {
+        return services.AddScoped<IBlogRepository, BlogRepository>();
+    }
+
+    #endregion
+
 }
