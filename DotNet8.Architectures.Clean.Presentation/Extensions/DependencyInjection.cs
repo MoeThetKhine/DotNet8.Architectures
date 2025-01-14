@@ -14,7 +14,9 @@ namespace DotNet8.Architectures.Clean.Presentation.Extensions
             return services.AddDbContextService(builder).AddRepositoryService();
         }
 
-        #endregion  
+        #endregion
+
+        #region AddDbContextService
 
         private static IServiceCollection AddDbContextService(this IServiceCollection services,WebApplicationBuilder builder)
         {
@@ -28,6 +30,8 @@ namespace DotNet8.Architectures.Clean.Presentation.Extensions
 
             return services;
         }
+
+        #endregion
 
         private static IServiceCollection AddRepositoryService(this IServiceCollection services)
         {
