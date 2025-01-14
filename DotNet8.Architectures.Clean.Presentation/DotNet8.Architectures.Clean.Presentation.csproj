@@ -6,13 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="MediatR" Version="12.4.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+	</ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\DotNet8.Architectures.Clean.Application\DotNet8.Architectures.Clean.Application.csproj" />
     <ProjectReference Include="..\DotNet8.Architectures.Clean.Domain\DotNet8.Architectures.Clean.Domain.csproj" />
     <ProjectReference Include="..\DotNet8.Architectures.Clean.Infrastructure\DotNet8.Architectures.Clean.Infrastructure.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.DTO\DotNet8.Architectures.DTO.csproj" />
     <ProjectReference Include="..\DotNet8.Architectures.Shared\DotNet8.Architectures.Shared.csproj" />
   </ItemGroup>
 
