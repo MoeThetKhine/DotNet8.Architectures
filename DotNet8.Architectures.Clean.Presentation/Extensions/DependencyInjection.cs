@@ -14,7 +14,11 @@ namespace DotNet8.Architectures.Clean.Presentation.Extensions
             return services.AddDbContextService(builder).AddRepositoryService();
         }
 
-        
+      
+        private static IServiceCollection AddRepositoryService(this IServiceCollection services)
+        {
+            return services.AddScoped<IBlogRepository, BlogRepository>();
+        }
 
     }
 }
