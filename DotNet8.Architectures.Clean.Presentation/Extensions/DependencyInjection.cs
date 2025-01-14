@@ -33,10 +33,14 @@ namespace DotNet8.Architectures.Clean.Presentation.Extensions
 
         #endregion
 
+        #region AddRepositoryService
+
         private static IServiceCollection AddRepositoryService(this IServiceCollection services)
         {
             return services.AddScoped<IBlogRepository, BlogRepository>();
         }
+
+        #endregion
 
     }
 }
