@@ -8,6 +8,9 @@
         {
             _blogRepository = blogRepository;
         }
+
+        #region Handle
+
         public async Task<Result<BlogListModelV1>> Handle(GetBlogListQuery request,CancellationToken cancellationToken)
         {
             Result<BlogListModelV1> result;
@@ -33,5 +36,8 @@
         result:
             return result;
         }
+
+        #endregion
+
     }
 }
