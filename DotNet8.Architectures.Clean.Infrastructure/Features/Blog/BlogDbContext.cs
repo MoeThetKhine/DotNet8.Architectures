@@ -1,13 +1,12 @@
-﻿namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-#region BlogDbContext
-
-public class BlogDbContext : DbContext
+namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
 {
-    public BlogDbContext(DbContextOptions options)
-        : base(options) { }
-
-    public DbSet<Tbl_Blog> Tbl_Blogs { get; set; }
+    internal class BlogDbContext
+    {
+    }
 }
-
-#endregion
