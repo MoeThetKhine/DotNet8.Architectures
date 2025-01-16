@@ -1,4 +1,5 @@
 using DotNet8.Architectures.Clean.Presentation.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDependencyInjection(builder);
+
 
 var app = builder.Build();
 
