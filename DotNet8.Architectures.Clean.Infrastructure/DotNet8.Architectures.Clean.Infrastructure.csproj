@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DotNet8.Architectures.BusinessLogic\DotNet8.Architectures.BusinessLogic.csproj" />
     <ProjectReference Include="..\DotNet8.Architectures.Clean.Application\DotNet8.Architectures.Clean.Application.csproj" />
     <ProjectReference Include="..\DotNet8.Architectures.Clean.Domain\DotNet8.Architectures.Clean.Domain.csproj" />
     <ProjectReference Include="..\DotNet8.Architectures.Extensions\DotNet8.Architectures.Extensions.csproj" />
