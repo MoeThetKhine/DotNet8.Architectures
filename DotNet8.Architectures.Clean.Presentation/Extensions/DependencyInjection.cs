@@ -1,20 +1,29 @@
-﻿namespace DotNet8.Architectures.Clean.Presentation.Extensions;
+﻿using DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+
+namespace DotNet8.Architectures.Clean.Presentation.Extensions;
 
 public static class DependencyInjection
 {
-
     #region AddDependencyInjection
 
-    public static IServiceCollection AddDependencyInjection(this IServiceCollection services,WebApplicationBuilder builder)
+    public static IServiceCollection AddDependencyInjection(this IServiceCollection services, WebApplicationBuilder builder)
     {
-        return services.AddDbContextService(builder).AddRepositoryService();
+        services.AddDbContextService(builder)
+                .AddRepositoryService();
+
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetBlogListQueryHandler).Assembly));
+
+        return services;
     }
 
     #endregion
 
     #region AddDbContextService
 
-    private static IServiceCollection AddDbContextService(this IServiceCollection services,WebApplicationBuilder builder)
+    private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
     {
         builder.Services.AddDbContext<BlogDbContext>(
         opt =>
@@ -37,5 +46,4 @@ public static class DependencyInjection
     }
 
     #endregion
-
 }
