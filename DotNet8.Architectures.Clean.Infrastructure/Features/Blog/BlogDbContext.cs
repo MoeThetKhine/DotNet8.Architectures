@@ -10,7 +10,7 @@ public class BlogDbContext : DbContext
     public BlogDbContext(DbContextOptions options)
    : base(options) { }
 
-    public DbSet<TblBlog> Tbl_Blogs { get; set; }
+    public DbSet<Tbl_Blog> Tbl_Blogs { get; set; }
 }
 
 #endregion
