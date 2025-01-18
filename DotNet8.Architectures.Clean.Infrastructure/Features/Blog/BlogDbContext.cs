@@ -1,7 +1,4 @@
-﻿using DotNet8.Architectures.BusinessLogic.Features.Blog;
-using DotNet8.Architectures.DbServices.Models;
-
-namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
+﻿namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 
 #region BlogDbContext
 
