@@ -1,4 +1,5 @@
 ﻿using DotNet8.Architectures.BusinessLogic.Features.Blog;
+using DotNet8.Architectures.DbServices.Models;
 
 namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 
@@ -9,7 +10,7 @@ public class BlogDbContext : DbContext
     public BlogDbContext(DbContextOptions options)
    : base(options) { }
 
-    public DbSet<BL_Blog> Tbl_Blogs { get; set; }
+    public DbSet<TblBlog> Tbl_Blogs { get; set; }
 }
 
 #endregion
