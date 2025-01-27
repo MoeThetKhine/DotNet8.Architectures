@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DotNet8.Architectures.Extensions;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -7,7 +9,12 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Clean.Application.Extensions
 {
-	public static IServiceCollection AddMediatRService(this IServiceCollection services)
+	public static class Extension
 	{
+		public static IServiceCollection AddMediatRService(this IServiceCollection services)
+		{
+			return services.AddMediatR(cf =>
+			cf.RegisterServicesFromAssembly(typeof(Extension).Assembly));
+		}
 	}
 }
