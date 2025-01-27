@@ -4,7 +4,7 @@
 
 public class BlogModel
 {
-    public int BlogId { get; set; }
+    public long BlogId { get; set; }
 
     public string BlogTitle { get; set; } = null!;
 

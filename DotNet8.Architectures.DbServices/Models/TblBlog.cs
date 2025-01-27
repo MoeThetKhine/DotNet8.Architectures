@@ -7,7 +7,7 @@ namespace DotNet8.Architectures.DbServices.Models;
 public partial class TblBlog
 {
     [Key]
-    public int BlogId { get; set; }
+    public long BlogId { get; set; }
 
     public string BlogTitle { get; set; } = null!;
 
