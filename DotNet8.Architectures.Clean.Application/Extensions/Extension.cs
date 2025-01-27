@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
+﻿
 namespace DotNet8.Architectures.Clean.Application.Extensions;
 
 #region Extension
