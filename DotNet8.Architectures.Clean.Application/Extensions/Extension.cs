@@ -1,5 +1,4 @@
-﻿
-namespace DotNet8.Architectures.Clean.Application.Extensions;
+﻿namespace DotNet8.Architectures.Clean.Application.Extensions;
 
 #region Extension
 
