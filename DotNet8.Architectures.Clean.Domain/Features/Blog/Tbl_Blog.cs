@@ -1,6 +1,4 @@
-﻿
-
-namespace DotNet8.Architectures.Clean.Domain.Features.Blog;
+﻿namespace DotNet8.Architectures.Clean.Domain.Features.Blog;
 
 #region Tbl_Blog
 
