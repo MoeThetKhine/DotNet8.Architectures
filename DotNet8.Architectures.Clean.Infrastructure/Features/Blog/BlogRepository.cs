@@ -1,11 +1,4 @@
-﻿using DotNet8.Architectures.Clean.Domain.Features.Blog;
-using DotNet8.Architectures.DTO.Features.Blog;
-using DotNet8.Architectures.DTO.PageSetting;
-using DotNet8.Architectures.Shared;
-using DotNet8.Architectures.Utils;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
+﻿namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
 {
 	public class BlogRepository : IBlogRepository
 	{
