@@ -1,13 +1,5 @@
 ﻿using DotNet8.Architectures.Clean.Domain.Features.Blog;
-using DotNet8.Architectures.DTO.Features.Blog;
-using DotNet8.Architectures.Utils;
 using DotNet8.Architectures.Utils.Resources;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Clean.Application.Features.Blog.GetBlogList
 {
