@@ -16,6 +16,8 @@ namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
 			_context = context;
 		}
 
+		#region GetBlogAsync
+
 		public async Task<Result<BlogListModelV1>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
 		{
 			Result<BlogListModelV1> result;
@@ -57,5 +59,8 @@ namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
 
 			return result;
 		}
+
+		#endregion
+
 	}
 }
