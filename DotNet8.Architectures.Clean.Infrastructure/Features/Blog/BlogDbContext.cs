@@ -1,5 +1,4 @@
-﻿using DotNet8.Architectures.DbServices.Models;
-using Microsoft.EntityFrameworkCore;
+﻿global using DotNet8.Architectures.DbServices.Models;
 
 namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 
