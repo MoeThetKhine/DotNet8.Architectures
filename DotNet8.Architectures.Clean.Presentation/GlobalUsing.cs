@@ -4,3 +4,5 @@ global using DotNet8.Architectures.Clean.Infrastructure.Features.Blog;
 global using Microsoft.EntityFrameworkCore;
 global using DotNet8.Architectures.Clean.Application.Extensions;
 global using DotNet8.Architectures.Clean.Presentation.Extensions;
+global using DotNet8.Architectures.Clean.Application.Features.Blog.GetBlogList;
+global using MediatR;
