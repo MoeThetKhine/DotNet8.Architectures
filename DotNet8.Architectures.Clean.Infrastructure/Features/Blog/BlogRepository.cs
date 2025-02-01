@@ -5,11 +5,6 @@ using DotNet8.Architectures.DTO.PageSetting;
 using DotNet8.Architectures.Shared;
 using DotNet8.Architectures.Utils;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Clean.Infrastructure.Features.Blog
 {
