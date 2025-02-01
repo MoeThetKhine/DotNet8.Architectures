@@ -6,3 +6,5 @@ global using DotNet8.Architectures.Clean.Application.Extensions;
 global using DotNet8.Architectures.Clean.Presentation.Extensions;
 global using DotNet8.Architectures.Clean.Application.Features.Blog.GetBlogList;
 global using MediatR;
+global using DotNet8.Architectures.Shared;
+
