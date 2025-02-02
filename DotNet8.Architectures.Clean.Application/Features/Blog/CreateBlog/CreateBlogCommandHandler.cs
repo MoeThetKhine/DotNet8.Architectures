@@ -5,54 +5,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DotNet8.Architectures.Clean.Application.Features.Blog.CreateBlog
+namespace DotNet8.Architectures.Clean.Application.Features.Blog.CreateBlog;
+
+public class CreateBlogCommandHandler : IRequestHandler<CreateBlogCommand, Result<BlogModel>>
 {
-	public class CreateBlogCommandHandler : IRequestHandler<CreateBlogCommand, Result<BlogModel>>
+	private readonly IBlogRepository _blogRepository;
+
+	public CreateBlogCommandHandler(IBlogRepository blogRepository)
 	{
-		private readonly IBlogRepository _blogRepository;
-
-		public CreateBlogCommandHandler(IBlogRepository blogRepository)
-		{
-			_blogRepository = blogRepository;
-		}
-
-		#region Handle
-
-		public async Task<Result<BlogModel>> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
-		{
-			Result<BlogModel> result;
-
-			try
-			{
-				if (request.requestModel.BlogTitle.IsNullOrEmpty())
-				{
-					result = Result<BlogModel>.Fail("Blog Title cannot be empty.");
-					goto result;
-				}
-
-				if (request.requestModel.BlogAuthor.IsNullOrEmpty())
-				{
-					result = Result<BlogModel>.Fail("Blog Author cannot be empty.");
-					goto result;
-				}
-
-				if (request.requestModel.BlogContent.IsNullOrEmpty())
-				{
-					result = Result<BlogModel>.Fail("Blog Content cannot be empty.");
-					goto result;
-				}
-
-				result = await _blogRepository.CreateBlogAsync(request.requestModel, cancellationToken);
-			}
-			catch (Exception ex)
-			{
-				result = Result<BlogModel>.Failure(ex);
-			}
-			result:
-			return result;
-		}
-
-		#endregion
-
+		_blogRepository = blogRepository;
 	}
+
+	#region Handle
+
+	public async Task<Result<BlogModel>> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		try
+		{
+			if (request.requestModel.BlogTitle.IsNullOrEmpty())
+			{
+				result = Result<BlogModel>.Fail("Blog Title cannot be empty.");
+				goto result;
+			}
+
+			if (request.requestModel.BlogAuthor.IsNullOrEmpty())
+			{
+				result = Result<BlogModel>.Fail("Blog Author cannot be empty.");
+				goto result;
+			}
+
+			if (request.requestModel.BlogContent.IsNullOrEmpty())
+			{
+				result = Result<BlogModel>.Fail("Blog Content cannot be empty.");
+				goto result;
+			}
+
+			result = await _blogRepository.CreateBlogAsync(request.requestModel, cancellationToken);
+		}
+		catch (Exception ex)
+		{
+			result = Result<BlogModel>.Failure(ex);
+		}
+		result:
+		return result;
+	}
+
+	#endregion
+
 }
