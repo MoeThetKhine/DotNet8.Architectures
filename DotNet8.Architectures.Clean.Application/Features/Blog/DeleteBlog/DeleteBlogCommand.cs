@@ -1,12 +1,11 @@
-﻿namespace DotNet8.Architectures.Clean.Application.Features.Blog.DeleteBlog
-{
-	public class DeleteBlogCommand : IRequest<Result<BlogModel>>
-	{
-		public int BlogId { get; set; }
+﻿namespace DotNet8.Architectures.Clean.Application.Features.Blog.DeleteBlog;
 
-		public DeleteBlogCommand(int blogId)
-		{
-			BlogId = blogId;
-		}
+public class DeleteBlogCommand : IRequest<Result<BlogModel>>
+{
+	public int BlogId { get; set; }
+
+	public DeleteBlogCommand(int blogId)
+	{
+		BlogId = blogId;
 	}
 }
