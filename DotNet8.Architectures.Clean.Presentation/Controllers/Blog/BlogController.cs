@@ -26,6 +26,8 @@ public class BlogController : BaseController
 
 	#endregion
 
+	#region GetBlogById
+
 	[HttpGet("{id}")]
 	public async Task<IActionResult> GetBlogById(int id, CancellationToken cancellationToken)
 	{
@@ -34,4 +36,6 @@ public class BlogController : BaseController
 
 		return Content(result);
 	}
+
+	#endregion
 }
