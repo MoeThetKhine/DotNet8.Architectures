@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.Clean.Application.Features.Blog.PatchBlog;
-
-namespace DotNet8.Architectures.Clean.Presentation.Controllers.Blog;
+﻿namespace DotNet8.Architectures.Clean.Presentation.Controllers.Blog;
 
 [Route("api/[controller]")]
 [ApiController]
