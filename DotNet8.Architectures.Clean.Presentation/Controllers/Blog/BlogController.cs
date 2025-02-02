@@ -1,4 +1,6 @@
-﻿namespace DotNet8.Architectures.Clean.Presentation.Controllers.Blog;
+﻿using DotNet8.Architectures.Clean.Application.Features.Blog.PatchBlog;
+
+namespace DotNet8.Architectures.Clean.Presentation.Controllers.Blog;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -30,7 +32,7 @@ public class BlogController : BaseController
 	public async Task<IActionResult> GetBlogById(int id, CancellationToken cancellationToken)
 	{
 		var query = new GetBlogByIdQuery(id);
-		var result = await _mediator.Send(query,cancellationToken);
+		var result = await _mediator.Send(query, cancellationToken);
 
 		return Content(result);
 	}
@@ -43,7 +45,7 @@ public class BlogController : BaseController
 	public async Task<IActionResult> CreateBlogAsync([FromBody] BlogRequestModel requestModel, CancellationToken cancellationToken)
 	{
 		var command = new CreateBlogCommand(requestModel);
-		var result = await _mediator.Send(command, cancellationToken);	
+		var result = await _mediator.Send(command, cancellationToken);
 
 		return Content(result);
 	}
@@ -53,14 +55,23 @@ public class BlogController : BaseController
 	#region UpdateBlog
 
 	[HttpPut("{id}")]
-	public async Task<IActionResult> UpdateBlog([FromBody]BlogRequestModel requestModel, int id,CancellationToken cancellationToken)
+	public async Task<IActionResult> UpdateBlog([FromBody] BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
 	{
-		var command = new UpdateBlogCommand( requestModel , id);
-		var result = await _mediator.Send(command,cancellationToken);
+		var command = new UpdateBlogCommand(requestModel, id);
+		var result = await _mediator.Send(command, cancellationToken);
 
 		return Content(result);
 	}
 
 	#endregion
+
+	[HttpPatch("{id}")]
+	public async Task<IActionResult> PatchBlog([FromBody]BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
+	{
+		var command = new PatchBlogCommand(requestModel, id);
+		var result = await _mediator.Send(command,cancellationToken);
+
+		return Content(result);
+	}
 
 }
