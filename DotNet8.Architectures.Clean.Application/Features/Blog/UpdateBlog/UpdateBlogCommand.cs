@@ -1,14 +1,13 @@
-﻿namespace DotNet8.Architectures.Clean.Application.Features.Blog.UpdateBlog
-{
-	public class UpdateBlogCommand : IRequest<Result<BlogModel>>
-	{
-		public BlogRequestModel RequestModel { get; set; }
-		public int BlogId {  get; set; }
+﻿namespace DotNet8.Architectures.Clean.Application.Features.Blog.UpdateBlog;
 
-		public UpdateBlogCommand(BlogRequestModel requestModel, int blogId)
-		{
-			RequestModel = requestModel;
-			BlogId = blogId;
-		}
+public class UpdateBlogCommand : IRequest<Result<BlogModel>>
+{
+	public BlogRequestModel RequestModel { get; set; }
+	public int BlogId {  get; set; }
+
+	public UpdateBlogCommand(BlogRequestModel requestModel, int blogId)
+	{
+		RequestModel = requestModel;
+		BlogId = blogId;
 	}
 }
