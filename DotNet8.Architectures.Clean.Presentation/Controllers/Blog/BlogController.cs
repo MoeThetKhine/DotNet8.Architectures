@@ -1,4 +1,6 @@
-﻿namespace DotNet8.Architectures.Clean.Presentation.Controllers.Blog;
+﻿using DotNet8.Architectures.Clean.Application.Features.Blog.DeleteBlog;
+
+namespace DotNet8.Architectures.Clean.Presentation.Controllers.Blog;
 
 [Route("api/[controller]")]
 [ApiController]
@@ -76,4 +78,11 @@ public class BlogController : BaseController
 
 	#endregion
 
+	[HttpDelete("{id}")]
+	public async Task<IActionResult> DeleteBlog(int id, CancellationToken cancellationToken)
+	{
+		var command = new DeleteBlogCommand(id);
+		var result = await _mediator.Send(command, cancellationToken);
+		return Content(result);
+	}
 }
