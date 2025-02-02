@@ -9,6 +9,8 @@
 			_blogRepository = blogRepository;
 		}
 
+		#region Handle
+
 		public async Task<Result<BlogModel>> Handle(DeleteBlogCommand request , CancellationToken cancellationToken)
 		{
 			Result<BlogModel> result;
@@ -23,5 +25,7 @@
 			result:
 			return result;
 		}
+
+		#endregion
 	}
 }
