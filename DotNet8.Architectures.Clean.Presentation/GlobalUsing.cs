@@ -12,4 +12,4 @@ global using DotNet8.Architectures.Clean.Application.Features.Blog.CreateBlog;
 global using DotNet8.Architectures.DTO.Features.Blog;
 global using DotNet8.Architectures.Clean.Application.Features.Blog.UpdateBlog;
 global using DotNet8.Architectures.Clean.Application.Features.Blog.PatchBlog;
-
+global using DotNet8.Architectures.Clean.Application.Features.Blog.DeleteBlog;
