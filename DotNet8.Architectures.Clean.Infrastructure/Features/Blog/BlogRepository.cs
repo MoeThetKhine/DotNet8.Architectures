@@ -56,4 +56,34 @@ public class BlogRepository : IBlogRepository
 	}
 
 	#endregion
+
+	public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		try
+		{
+			var blog = await _context.Tbl_Blogs.FindAsync([id, cancellationToken], cancellationToken: cancellationToken);
+
+			if (blog is null)
+			{
+				result = Result<BlogModel>.NotFound("Blog Not Found");
+				goto result;
+			}
+
+			result = Result<BlogModel>.Success(new BlogModel()
+			{
+				BlogId = blog.BlogId,
+				BlogTitle = blog.BlogTitle,
+				BlogAuthor = blog.BlogAuthor,
+				BlogContent = blog.BlogContent,
+			});
+		}
+		catch (Exception ex)
+		{
+			result = Result<BlogModel>.Failure(ex);
+		}
+	result:
+		return result;
+	}
 }
