@@ -121,6 +121,8 @@ public class BlogRepository : IBlogRepository
 
 	#endregion
 
+	#region UpdateBlogAsync
+
 	public async Task<Result<BlogModel>> UpdateBlogAsync(int id,BlogRequestModel requestModel, CancellationToken cancellationToken)
 	{
 		Result<BlogModel> result;
@@ -152,5 +154,7 @@ public class BlogRepository : IBlogRepository
 	result:
 		return result;
 	}
+
+	#endregion
 
 }
