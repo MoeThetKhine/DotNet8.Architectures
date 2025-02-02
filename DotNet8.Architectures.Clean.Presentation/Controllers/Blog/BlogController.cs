@@ -1,7 +1,5 @@
 ﻿using DotNet8.Architectures.Clean.Application.Features.Blog.CreateBlog;
-using DotNet8.Architectures.DbServices.Models;
 using DotNet8.Architectures.DTO.Features.Blog;
-using DotNet8.Architectures.Utils;
 
 namespace DotNet8.Architectures.Clean.Presentation.Controllers.Blog;
 
