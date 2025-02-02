@@ -1,40 +1,39 @@
-﻿namespace DotNet8.Architectures.Clean.Application.Features.Blog.UpdateBlog
+﻿namespace DotNet8.Architectures.Clean.Application.Features.Blog.UpdateBlog;
+
+public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<BlogModel>>
 {
-	public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<BlogModel>>
+	private readonly IBlogRepository _blogRepository;
+
+	public UpdateBlogCommandHandler(IBlogRepository blogRepository)
 	{
-		private readonly IBlogRepository _blogRepository;
+		_blogRepository = blogRepository;
+	}
 
-		public UpdateBlogCommandHandler(IBlogRepository blogRepository)
+	public async Task<Result<BlogModel>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		if(request.RequestModel.BlogTitle.IsNullOrEmpty())
 		{
-			_blogRepository = blogRepository;
+			result = Result<BlogModel>.Fail("Blog Title Cannot be empty.");
+			goto result;
 		}
 
-		public async Task<Result<BlogModel>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
+		if (request.RequestModel.BlogAuthor.IsNullOrEmpty())
 		{
-			Result<BlogModel> result;
-
-			if(request.RequestModel.BlogTitle.IsNullOrEmpty())
-			{
-				result = Result<BlogModel>.Fail("Blog Title Cannot be empty.");
-				goto result;
-			}
-
-			if (request.RequestModel.BlogAuthor.IsNullOrEmpty())
-			{
-				result = Result<BlogModel>.Fail("Blog Author Cannot be empty.");
-				goto result;
-			}
-
-			if (request.RequestModel.BlogContent.IsNullOrEmpty())
-			{
-				result = Result<BlogModel>.Fail("Blog Content Cannot be empty.");
-				goto result;
-			}
-
-			result = await _blogRepository.UpdateBlogAsync(request.BlogId, request.RequestModel, cancellationToken);
-
-			result:
-			return result;
+			result = Result<BlogModel>.Fail("Blog Author Cannot be empty.");
+			goto result;
 		}
+
+		if (request.RequestModel.BlogContent.IsNullOrEmpty())
+		{
+			result = Result<BlogModel>.Fail("Blog Content Cannot be empty.");
+			goto result;
+		}
+
+		result = await _blogRepository.UpdateBlogAsync(request.BlogId, request.RequestModel, cancellationToken);
+
+		result:
+		return result;
 	}
 }
