@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Hexgonal.Infracture.Features.Blog
 {
-	internal class BlogDbContext
+	public class BlogDbContext
 	{
 	}
 }
