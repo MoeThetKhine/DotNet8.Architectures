@@ -8,7 +8,7 @@ namespace DotNet8.Architectures.Hexgonal.Api.Extensions
 {
 	public static class DependencyInjection
 	{
-		
+		#region AddDbContextService
 
 		private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
 		{
@@ -25,6 +25,8 @@ namespace DotNet8.Architectures.Hexgonal.Api.Extensions
 
 			return services;
 		}
+
+		#endregion
 
 		private static IServiceCollection AddRepositoryService(this IServiceCollection services)
 		{
