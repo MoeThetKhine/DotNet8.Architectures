@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DotNet8.Architectures.Hexgonal.Domain.Features.Blog;
 
+#region Tbl_Blog
+
 [Table("Tbl_Blog")]
 public class Tbl_Blog
 {
@@ -12,3 +14,5 @@ public class Tbl_Blog
 	public string BlogAuthor {  get; set; }
 	public string BlogContent {  get; set; }
 }
+
+#endregion
