@@ -1,7 +1,5 @@
 ﻿using DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogList;
 using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.Architectures.Hexgonal.Api.Controllers.Blog
 {
