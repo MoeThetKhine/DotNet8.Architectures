@@ -1,9 +1,4 @@
-﻿using DotNet8.Architectures.DbServices.Models;
-using DotNet8.Architectures.Hexgonal.Domain.Features.Blog;
-using DotNet8.Architectures.Hexgonal.Infracture.Features.Blog;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.Architectures.Hexgonal.Api.Extensions;
+﻿namespace DotNet8.Architectures.Hexgonal.Api.Extensions;
 
 public static class DependencyInjection
 {
