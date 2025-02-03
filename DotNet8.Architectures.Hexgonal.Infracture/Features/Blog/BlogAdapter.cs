@@ -17,6 +17,8 @@ namespace DotNet8.Architectures.Hexgonal.Infracture.Features.Blog
 			_context = context;
 		}
 
+		#region GetBlogAsync
+
 		public async Task<Result<BlogListModelV1>> GetBlogAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
 		{
 			Result<BlogListModelV1> result;
@@ -56,5 +58,8 @@ namespace DotNet8.Architectures.Hexgonal.Infracture.Features.Blog
 
 			return result;
 		}
+
+		#endregion
+
 	}
 }
