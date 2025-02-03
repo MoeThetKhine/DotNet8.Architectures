@@ -2,7 +2,6 @@
 using DotNet8.Architectures.Hexgonal.Domain.Features.Blog;
 using DotNet8.Architectures.Hexgonal.Infracture.Features.Blog;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace DotNet8.Architectures.Hexgonal.Api.Extensions;
 
