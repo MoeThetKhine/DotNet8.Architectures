@@ -3,11 +3,6 @@ using DotNet8.Architectures.Hexgonal.Domain.Features.Blog;
 using DotNet8.Architectures.Utils;
 using DotNet8.Architectures.Utils.Resources;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogList
 {
