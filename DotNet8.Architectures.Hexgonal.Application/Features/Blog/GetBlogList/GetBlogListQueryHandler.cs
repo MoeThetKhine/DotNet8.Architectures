@@ -4,44 +4,43 @@ using DotNet8.Architectures.Utils;
 using DotNet8.Architectures.Utils.Resources;
 using MediatR;
 
-namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogList
+namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogList;
+
+public class GetBlogListQueryHandler : IRequestHandler<GetBlogListQuery, Result<BlogListModelV1>>
 {
-	public class GetBlogListQueryHandler : IRequestHandler<GetBlogListQuery, Result<BlogListModelV1>>
+	private readonly IBlogPort _blogPort;
+
+	public GetBlogListQueryHandler(IBlogPort blogPort)
 	{
-		private readonly IBlogPort _blogPort;
+		_blogPort = blogPort;
+	}
 
-		public GetBlogListQueryHandler(IBlogPort blogPort)
+	public async Task<Result<BlogListModelV1>> Handle(GetBlogListQuery request, CancellationToken cancellationToken)
+	{
+		Result<BlogListModelV1> result;
+
+		try
 		{
-			_blogPort = blogPort;
-		}
+			if(request.PageNo <= 0)
+			{
+				result = Result<BlogListModelV1>.Fail(MessageResource.InvalidPageNo);
+				goto result;
+			}
 
-		public async Task<Result<BlogListModelV1>> Handle(GetBlogListQuery request, CancellationToken cancellationToken)
+			if(request.PageSize <= 0)
+			{
+				result = Result<BlogListModelV1>.Fail(MessageResource.InvalidPageSize);
+				goto result;
+			}
+
+			result = await _blogPort.GetBlogAsync(request.PageNo, request.PageSize, cancellationToken);
+
+		}
+		catch (Exception ex)
 		{
-			Result<BlogListModelV1> result;
-
-			try
-			{
-				if(request.PageNo <= 0)
-				{
-					result = Result<BlogListModelV1>.Fail(MessageResource.InvalidPageNo);
-					goto result;
-				}
-
-				if(request.PageSize <= 0)
-				{
-					result = Result<BlogListModelV1>.Fail(MessageResource.InvalidPageSize);
-					goto result;
-				}
-
-				result = await _blogPort.GetBlogAsync(request.PageNo, request.PageSize, cancellationToken);
-
-			}
-			catch (Exception ex)
-			{
-				result = Result<BlogListModelV1>.Failure(ex);
-			}
-			result:
-			return result;
+			result = Result<BlogListModelV1>.Failure(ex);
 		}
+		result:
+		return result;
 	}
 }
