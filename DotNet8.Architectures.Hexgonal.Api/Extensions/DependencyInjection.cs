@@ -26,5 +26,10 @@ namespace DotNet8.Architectures.Hexgonal.Api.Extensions
 			return services;
 		}
 
+		
+		public static IServiceCollection AddDependencyInjection(this IServiceCollection services, WebApplicationBuilder builder)
+		{
+			return services.AddDbContextService(builder).AddRepositoryService();
+		}
 	}
 }
