@@ -10,4 +10,11 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet8.Architectures.DbServices\DotNet8.Architectures.DbServices.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Hexgonal.Application\DotNet8.Architectures.Hexgonal.Application.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Hexgonal.Infracture\DotNet8.Architectures.Hexgonal.Infracture.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Shared\DotNet8.Architectures.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
