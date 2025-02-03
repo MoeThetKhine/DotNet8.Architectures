@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotNet8.Architectures.Hexgonal.Infracture
-{
-	internal class GlobalUsing
-	{
-	}
-}
+﻿global using DotNet8.Architectures.DbServices.Models;
+global using DotNet8.Architectures.DTO.Features.Blog;
+global using DotNet8.Architectures.DTO.PageSetting;
+global using DotNet8.Architectures.Hexgonal.Domain.Features.Blog;
+global using DotNet8.Architectures.Shared;
+global using DotNet8.Architectures.Utils;
+global using Microsoft.EntityFrameworkCore;
