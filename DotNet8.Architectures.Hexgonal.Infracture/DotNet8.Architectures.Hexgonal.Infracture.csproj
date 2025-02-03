@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet8.Architectures.DbServices\DotNet8.Architectures.DbServices.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.DTO\DotNet8.Architectures.DTO.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Extensions\DotNet8.Architectures.Extensions.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Hexgonal.Domain\DotNet8.Architectures.Hexgonal.Domain.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Shared\DotNet8.Architectures.Shared.csproj" />
+    <ProjectReference Include="..\DotNet8.Architectures.Utils\DotNet8.Architectures.Utils.csproj" />
+  </ItemGroup>
+
 </Project>
