@@ -28,10 +28,15 @@ namespace DotNet8.Architectures.Hexgonal.Api.Extensions
 
 		#endregion
 
+		#region AddRepositoryService
+
 		private static IServiceCollection AddRepositoryService(this IServiceCollection services)
 		{
 			return services.AddScoped<IBlogPort, BlogAdapter>();
 		}
+
+		#endregion
+
 		public static IServiceCollection AddDependencyInjection(this IServiceCollection services, WebApplicationBuilder builder)
 		{
 			return services.AddDbContextService(builder).AddRepositoryService();
