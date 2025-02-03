@@ -1,6 +1,2 @@
-﻿namespace DotNet8.Architectures.Hexgonal.Api
-{
-	public class GlobalUsing
-	{
-	}
-}
+﻿global using DotNet8.Architectures.Shared;
+global using Microsoft.AspNetCore.Mvc;
