@@ -37,6 +37,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Clean
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Clean.Infrastructure", "DotNet8.Architectures.Clean.Infrastructure\DotNet8.Architectures.Clean.Infrastructure.csproj", "{1A32501B-7C49-4650-8261-CC1E98E1A7DA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hexagonal", "Hexagonal", "{73EE7E2D-6A8C-47AD-BF07-CA302D18934B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3704DB8E-DBE9-49AF-84A5-01930B7064D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Hexgonal.Application", "DotNet8.Architectures.Hexgonal.Application\DotNet8.Architectures.Hexgonal.Application.csproj", "{891086F7-387E-4A65-B9EA-3747E90C8150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Hexgonal.Domain", "DotNet8.Architectures.Hexgonal.Domain\DotNet8.Architectures.Hexgonal.Domain.csproj", "{DB28637E-59FF-439C-8CB2-E39573288ADF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Hexgonal.Infracture", "DotNet8.Architectures.Hexgonal.Infracture\DotNet8.Architectures.Hexgonal.Infracture.csproj", "{2311FA1E-98BB-415B-B97E-E9A038205642}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Hexgonal.Api", "DotNet8.Architectures.Hexgonal.Api\DotNet8.Architectures.Hexgonal.Api.csproj", "{6BED1C82-5D2C-4346-AE7A-7670F5D919F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +103,22 @@ Global
 		{1A32501B-7C49-4650-8261-CC1E98E1A7DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A32501B-7C49-4650-8261-CC1E98E1A7DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A32501B-7C49-4650-8261-CC1E98E1A7DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891086F7-387E-4A65-B9EA-3747E90C8150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891086F7-387E-4A65-B9EA-3747E90C8150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891086F7-387E-4A65-B9EA-3747E90C8150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891086F7-387E-4A65-B9EA-3747E90C8150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB28637E-59FF-439C-8CB2-E39573288ADF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB28637E-59FF-439C-8CB2-E39573288ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB28637E-59FF-439C-8CB2-E39573288ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB28637E-59FF-439C-8CB2-E39573288ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2311FA1E-98BB-415B-B97E-E9A038205642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2311FA1E-98BB-415B-B97E-E9A038205642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2311FA1E-98BB-415B-B97E-E9A038205642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2311FA1E-98BB-415B-B97E-E9A038205642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BED1C82-5D2C-4346-AE7A-7670F5D919F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BED1C82-5D2C-4346-AE7A-7670F5D919F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BED1C82-5D2C-4346-AE7A-7670F5D919F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BED1C82-5D2C-4346-AE7A-7670F5D919F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +138,11 @@ Global
 		{21C1CDC7-6C45-42DB-BC8E-942FCC16E06E} = {8FF862DD-F040-4816-B75A-92778C58B4C5}
 		{A5EE49F6-8D04-40FC-835E-89668342020D} = {8FF862DD-F040-4816-B75A-92778C58B4C5}
 		{1A32501B-7C49-4650-8261-CC1E98E1A7DA} = {8FF862DD-F040-4816-B75A-92778C58B4C5}
+		{3704DB8E-DBE9-49AF-84A5-01930B7064D4} = {73EE7E2D-6A8C-47AD-BF07-CA302D18934B}
+		{891086F7-387E-4A65-B9EA-3747E90C8150} = {3704DB8E-DBE9-49AF-84A5-01930B7064D4}
+		{DB28637E-59FF-439C-8CB2-E39573288ADF} = {3704DB8E-DBE9-49AF-84A5-01930B7064D4}
+		{2311FA1E-98BB-415B-B97E-E9A038205642} = {3704DB8E-DBE9-49AF-84A5-01930B7064D4}
+		{6BED1C82-5D2C-4346-AE7A-7670F5D919F6} = {3704DB8E-DBE9-49AF-84A5-01930B7064D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D362481D-50CA-49BC-A186-88FE1DA3F994}

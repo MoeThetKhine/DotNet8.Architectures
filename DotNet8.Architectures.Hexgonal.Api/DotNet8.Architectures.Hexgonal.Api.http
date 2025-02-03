@@ -1,0 +1,6 @@
+@DotNet8.Architectures.Hexgonal.Api_HostAddress = http://localhost:5264
+
+GET {{DotNet8.Architectures.Hexgonal.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
