@@ -1,13 +1,4 @@
-﻿using DotNet8.Architectures.DTO.Features.Blog;
-using DotNet8.Architectures.Utils;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogList
+﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogList
 {
 	public class GetBlogListQuery : IRequest<Result<BlogListModelV1>>
 	{
