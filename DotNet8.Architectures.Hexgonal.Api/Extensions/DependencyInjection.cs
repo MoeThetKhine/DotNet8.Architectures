@@ -37,9 +37,14 @@ namespace DotNet8.Architectures.Hexgonal.Api.Extensions
 
 		#endregion
 
+		#region AddDependencyInjection
+
 		public static IServiceCollection AddDependencyInjection(this IServiceCollection services, WebApplicationBuilder builder)
 		{
 			return services.AddDbContextService(builder).AddRepositoryService();
 		}
+
+		#endregion
+
 	}
 }
