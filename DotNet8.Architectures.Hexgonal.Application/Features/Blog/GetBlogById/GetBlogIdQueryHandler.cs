@@ -1,6 +1,6 @@
 ﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogById;
 
-public class GetBlogIdQueryHandler : IRequestHandler<GetBlogIdQuery , Result<BlogModel>>
+public class GetBlogIdQueryHandler : IRequestHandler<GetBlogByIdQuery, Result<BlogModel>>
 {
 	private readonly IBlogPort _blogPort;
 
@@ -11,7 +11,7 @@ public class GetBlogIdQueryHandler : IRequestHandler<GetBlogIdQuery , Result<Blo
 
 	#region Handle
 
-	public async Task<Result<BlogModel>> Handle(GetBlogIdQuery request, CancellationToken cancellationToken)
+	public async Task<Result<BlogModel>> Handle(GetBlogByIdQuery request, CancellationToken cancellationToken)
 	{
 		Result<BlogModel> result;
 
