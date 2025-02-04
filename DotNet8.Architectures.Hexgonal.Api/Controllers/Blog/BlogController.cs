@@ -26,6 +26,8 @@ public class BlogController : BaseController
 
 	#endregion
 
+	#region GetBlogById
+
 	[HttpGet("{id}")]
 	public async Task<IActionResult> GetBlogById(int id,CancellationToken cancellationToken)
 	{
@@ -33,5 +35,7 @@ public class BlogController : BaseController
 		var result = await _mediator.Send(query,cancellationToken);
 		return Content(result);
 	}
+
+	#endregion
 
 }
