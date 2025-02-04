@@ -1,5 +1,7 @@
 ﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogById;
 
+#region GetBlogIdQuery
+
 public class GetBlogIdQuery : IRequest<Result<BlogModel>>
 {
 	public int BlogId {  get; set; }
@@ -9,3 +11,5 @@ public class GetBlogIdQuery : IRequest<Result<BlogModel>>
 		BlogId = blogId;
 	}	
 }
+
+#endregion
