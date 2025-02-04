@@ -9,6 +9,8 @@ public class GetBlogIdQueryHandler : IRequestHandler<GetBlogIdQuery , Result<Blo
 		_blogPort = blogPort;
 	}
 
+	#region Handle
+
 	public async Task<Result<BlogModel>> Handle(GetBlogIdQuery request, CancellationToken cancellationToken)
 	{
 		Result<BlogModel> result;
@@ -24,4 +26,7 @@ public class GetBlogIdQueryHandler : IRequestHandler<GetBlogIdQuery , Result<Blo
 		result:
 		return result;
 	}
+
+	#endregion
+
 }
