@@ -1,12 +1,11 @@
-﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogById
-{
-	public class GetBlogIdQuery : IRequest<Result<BlogModel>>
-	{
-		public int BlogId {  get; set; }
+﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogById;
 
-		public GetBlogIdQuery(int blogId)
-		{
-			BlogId = blogId;
-		}	
-	}
+public class GetBlogIdQuery : IRequest<Result<BlogModel>>
+{
+	public int BlogId {  get; set; }
+
+	public GetBlogIdQuery(int blogId)
+	{
+		BlogId = blogId;
+	}	
 }
