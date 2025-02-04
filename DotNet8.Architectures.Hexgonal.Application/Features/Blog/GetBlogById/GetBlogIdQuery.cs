@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.GetBlogById
 {
-	internal class GetBlogIdQuery
+	public class GetBlogIdQuery : IRequest<Result<BlogModel>>
 	{
+		public int BlogId {  get; set; }
+
+		public GetBlogIdQuery(int blogId)
+		{
+			BlogId = blogId;
+		}	
 	}
 }
