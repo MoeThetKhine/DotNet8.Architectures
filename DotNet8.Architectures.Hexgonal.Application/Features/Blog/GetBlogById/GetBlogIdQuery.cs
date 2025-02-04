@@ -2,11 +2,11 @@
 
 #region GetBlogIdQuery
 
-public class GetBlogIdQuery : IRequest<Result<BlogModel>>
+public class GetBlogByIdQuery : IRequest<Result<BlogModel>>
 {
 	public int BlogId {  get; set; }
 
-	public GetBlogIdQuery(int blogId)
+	public GetBlogByIdQuery(int blogId)
 	{
 		BlogId = blogId;
 	}	
