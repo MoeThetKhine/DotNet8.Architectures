@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.Hexgonal.Application.Features.Blog.PatchBlog;
-
-namespace DotNet8.Architectures.Hexgonal.Api.Controllers.Blog;
+﻿namespace DotNet8.Architectures.Hexgonal.Api.Controllers.Blog;
 
 [Route("api/[controller]")]
 [ApiController]
