@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.DeleteBlog
 {
-	internal class DeleteBlogCommand
+	public class DeleteBlogCommand : IRequest<Result<BlogModel>>
 	{
+		public int BlogId {  get; set; }
+
+		public DeleteBlogCommand(int blogId)
+		{
+			BlogId = blogId;
+		}
 	}
 }
