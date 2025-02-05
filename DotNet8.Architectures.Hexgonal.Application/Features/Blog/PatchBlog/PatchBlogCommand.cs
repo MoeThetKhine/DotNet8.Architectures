@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.PatchBlog
+﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.PatchBlog
 {
 	public class PatchBlogCommand : IRequest<Result<BlogModel>>
 	{
