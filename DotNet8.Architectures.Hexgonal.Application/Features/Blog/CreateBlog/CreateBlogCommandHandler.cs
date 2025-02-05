@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.Shared;
-
-namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.CreateBlog;
+﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.CreateBlog;
 
 public class CreateBlogCommandHandler : IRequestHandler<CreateBlogCommand , Result<BlogModel>>
 {
