@@ -13,6 +13,8 @@ public interface IBlogPort
 	Task<Result<BlogModel>> UpdateBlogAsync(int id ,BlogRequestModel requestModel, CancellationToken cancellationToken);
 
 	Task<Result<BlogModel>> PatchBlogAsync(BlogRequestModel requestModel, int id , CancellationToken cancellationToken);
+
+	Task<Result<BlogModel>> DeleteBlogAsync(int id , CancellationToken cancellationToken);
 }
 
 #endregion
