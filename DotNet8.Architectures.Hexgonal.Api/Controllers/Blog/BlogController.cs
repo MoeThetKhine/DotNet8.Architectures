@@ -39,6 +39,7 @@ public class BlogController : BaseController
 
 	#endregion
 
+	#region CreateBlog
 
 	public async Task<IActionResult> CreateBlog([FromBody] BlogRequestModel requestModel, CancellationToken cancellationToken)
 	{
@@ -48,6 +49,6 @@ public class BlogController : BaseController
 		return Content(result);
 	}
 
+	#endregion
 
-	
 }
