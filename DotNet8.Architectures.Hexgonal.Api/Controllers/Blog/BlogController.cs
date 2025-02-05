@@ -11,7 +11,7 @@ public class BlogController : BaseController
 		_mediator = mediator;
 	}
 
-	#region GetBlogs
+	#region Get Blogs
 
 	[HttpGet]
 	public async Task<IActionResult> GetBlogs(int pageNo, int pageSize, CancellationToken cancellationToken)
@@ -24,7 +24,7 @@ public class BlogController : BaseController
 
 	#endregion
 
-	#region GetBlogById
+	#region Get Blog By Id
 
 	[HttpGet("{id}")]
 	public async Task<IActionResult> GetBlogById(int id,CancellationToken cancellationToken)
@@ -36,7 +36,7 @@ public class BlogController : BaseController
 
 	#endregion
 
-	#region CreateBlog
+	#region Create Blog
 
 	public async Task<IActionResult> CreateBlog([FromBody] BlogRequestModel requestModel, CancellationToken cancellationToken)
 	{
@@ -48,7 +48,7 @@ public class BlogController : BaseController
 
 	#endregion
 
-	#region UpdateBlog
+	#region Update Blog
 
 	[HttpPut("{id}")]
 	public async Task<IActionResult> UpdateBlog([FromBody]int id, BlogRequestModel requestModel, CancellationToken cancellationToken)
