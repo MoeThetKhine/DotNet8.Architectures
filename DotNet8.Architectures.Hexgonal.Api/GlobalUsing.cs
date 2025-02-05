@@ -13,5 +13,3 @@ global using DotNet8.Architectures.Hexgonal.Application.Features.Blog.CreateBlog
 global using DotNet8.Architectures.Hexgonal.Application.Features.Blog.UpdateBlog;
 global using DotNet8.Architectures.Hexgonal.Application.Features.Blog.PatchBlog;
 global using DotNet8.Architectures.Hexgonal.Application.Features.Blog.DeleteBlog;
-
-
