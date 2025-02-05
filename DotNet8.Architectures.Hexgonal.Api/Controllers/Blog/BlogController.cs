@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.DTO.Features.Blog;
-using DotNet8.Architectures.Hexgonal.Application.Features.Blog.CreateBlog;
-
+﻿
 namespace DotNet8.Architectures.Hexgonal.Api.Controllers.Blog;
 
 [Route("api/[controller]")]
