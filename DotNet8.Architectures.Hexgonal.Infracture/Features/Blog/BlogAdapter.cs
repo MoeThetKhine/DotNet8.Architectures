@@ -1,4 +1,6 @@
-﻿namespace DotNet8.Architectures.Hexgonal.Infracture.Features.Blog;
+﻿using DotNet8.Architectures.Extensions;
+
+namespace DotNet8.Architectures.Hexgonal.Infracture.Features.Blog;
 
 public class BlogAdapter : IBlogPort
 {
@@ -81,6 +83,26 @@ public class BlogAdapter : IBlogPort
 		}
 
 		result:
+		return result;
+	}
+
+	public async Task<Result<BlogModel>> CreateBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		try
+		{
+			await _context.Tbl_Blogs.AddAsync(blogRequest.ToEntity(), cancellationToken);
+			await _context.SaveChangesAsync(cancellationToken);
+
+			result = Result<BlogModel>.Success();
+		}
+		catch (Exception ex)
+		{
+			result = Result<BlogModel>.Failure(ex);
+		}
+
+	result:
 		return result;
 	}
 
