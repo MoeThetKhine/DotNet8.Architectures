@@ -13,6 +13,8 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
 	{
 		Result<BlogModel> result;
 
+		#region Validation
+
 		if (request.requestModel.BlogTitle.IsNullOrEmpty())
 		{
 			result = Result<BlogModel>.Fail("Blog Title cannot be empty.");
@@ -30,6 +32,8 @@ public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Resul
 			result = Result<BlogModel>.Fail("Blog Content cannot be empty.");
 			goto result;
 		}
+
+		#endregion
 
 		result = await _blogPort.UpdateBlogAsync(request.BlogId, request.requestModel , cancellationToken);
 
