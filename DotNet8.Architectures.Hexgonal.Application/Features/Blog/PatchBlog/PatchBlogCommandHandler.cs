@@ -1,28 +1,27 @@
-﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.PatchBlog
+﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.PatchBlog;
+
+public class PatchBlogCommandHandler : IRequestHandler<PatchBlogCommand , Result<BlogModel>>
 {
-	public class PatchBlogCommandHandler : IRequestHandler<PatchBlogCommand , Result<BlogModel>>
+	private readonly IBlogPort _blogPort;
+
+	public PatchBlogCommandHandler(IBlogPort blogPort)
 	{
-		private readonly IBlogPort _blogPort;
+		_blogPort = blogPort;
+	}
 
-		public PatchBlogCommandHandler(IBlogPort blogPort)
+	public async Task<Result<BlogModel>> Handle (PatchBlogCommand request, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		if(request.BlogId <= 0)
 		{
-			_blogPort = blogPort;
+			result = Result<BlogModel>.Fail(MessageResource.InvalidId);
+			goto result;
 		}
 
-		public async Task<Result<BlogModel>> Handle (PatchBlogCommand request, CancellationToken cancellationToken)
-		{
-			Result<BlogModel> result;
+		result = await _blogPort.PatchBlogAsync(request.BlogRequestModel, request.BlogId, cancellationToken);
 
-			if(request.BlogId <= 0)
-			{
-				result = Result<BlogModel>.Fail(MessageResource.InvalidId);
-				goto result;
-			}
-
-			result = await _blogPort.PatchBlogAsync(request.BlogRequestModel, request.BlogId, cancellationToken);
-
-			result:
-			return result;
-		}
+		result:
+		return result;
 	}
 }
