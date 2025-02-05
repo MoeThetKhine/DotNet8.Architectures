@@ -1,40 +1,39 @@
-﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.UpdateBlog
+﻿namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.UpdateBlog;
+
+public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<BlogModel>>
 {
-	public class UpdateBlogCommandHandler : IRequestHandler<UpdateBlogCommand, Result<BlogModel>>
+	private readonly IBlogPort _blogPort;
+
+	public UpdateBlogCommandHandler(IBlogPort blogPort)
 	{
-		private readonly IBlogPort _blogPort;
+		_blogPort = blogPort;
+	}
 
-		public UpdateBlogCommandHandler(IBlogPort blogPort)
+	public async Task<Result<BlogModel>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		if (request.requestModel.BlogTitle.IsNullOrEmpty())
 		{
-			_blogPort = blogPort;
+			result = Result<BlogModel>.Fail("Blog Title cannot be empty.");
+			goto result;
 		}
 
-		public async Task<Result<BlogModel>> Handle(UpdateBlogCommand request, CancellationToken cancellationToken)
+		if(request.requestModel.BlogAuthor.IsNullOrEmpty())
 		{
-			Result<BlogModel> result;
-
-			if (request.requestModel.BlogTitle.IsNullOrEmpty())
-			{
-				result = Result<BlogModel>.Fail("Blog Title cannot be empty.");
-				goto result;
-			}
-
-			if(request.requestModel.BlogAuthor.IsNullOrEmpty())
-			{
-				result = Result<BlogModel>.Fail("Blog Author cannot be empty.");
-				goto result;
-			}
-
-			if(request.requestModel.BlogContent.IsNullOrEmpty())
-			{
-				result = Result<BlogModel>.Fail("Blog Content cannot be empty.");
-				goto result;
-			}
-
-			result = await _blogPort.UpdateBlogAsync(request.BlogId, request.requestModel , cancellationToken);
-
-			result:
-			return result;
+			result = Result<BlogModel>.Fail("Blog Author cannot be empty.");
+			goto result;
 		}
+
+		if(request.requestModel.BlogContent.IsNullOrEmpty())
+		{
+			result = Result<BlogModel>.Fail("Blog Content cannot be empty.");
+			goto result;
+		}
+
+		result = await _blogPort.UpdateBlogAsync(request.BlogId, request.requestModel , cancellationToken);
+
+		result:
+		return result;
 	}
 }
