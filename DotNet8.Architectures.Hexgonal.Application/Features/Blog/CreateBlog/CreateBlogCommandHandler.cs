@@ -11,6 +11,8 @@ namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.CreateBlog
 			_blogPort = blogPort;
 		}
 
+		#region Handle
+
 		public async Task<Result<BlogModel>> Handle(CreateBlogCommand request, CancellationToken cancellationToken)
 		{
 			Result<BlogModel> result;
@@ -38,5 +40,7 @@ namespace DotNet8.Architectures.Hexgonal.Application.Features.Blog.CreateBlog
 			result:
 			return result;
 		}
+
+		#endregion
 	}
 }
