@@ -114,6 +114,8 @@ public class BlogAdapter : IBlogPort
 
 	#endregion
 
+	#region UpdateBlogAsync
+
 	public async Task<Result<BlogModel>> UpdateBlogAsync(int id, BlogRequestModel requestModel, CancellationToken cancellationToken)
 	{
 		Result<BlogModel> result;
@@ -145,6 +147,8 @@ public class BlogAdapter : IBlogPort
 	result:
 		return result;
 	}
+
+	#endregion
 
 	public async Task<Result<BlogModel>> PatchBlogAsync(BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
 	{
