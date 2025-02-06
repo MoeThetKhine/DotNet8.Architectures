@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.Extensions;
-
-namespace DotNet8.Architectures.Hexgonal.Infracture.Features.Blog;
+﻿namespace DotNet8.Architectures.Hexgonal.Infracture.Features.Blog;
 
 public class BlogAdapter : IBlogPort
 {
