@@ -38,6 +38,7 @@ public class BlogController : BaseController
 
 	#region Create Blog
 
+	[HttpPost]
 	public async Task<IActionResult> CreateBlog([FromBody] BlogRequestModel requestModel, CancellationToken cancellationToken)
 	{
 		var command = new CreateBlogCommand(requestModel);
@@ -51,7 +52,7 @@ public class BlogController : BaseController
 	#region Update Blog
 
 	[HttpPut("{id}")]
-	public async Task<IActionResult> UpdateBlog([FromBody]int id, BlogRequestModel requestModel, CancellationToken cancellationToken)
+	public async Task<IActionResult> UpdateBlog(int id, BlogRequestModel requestModel, CancellationToken cancellationToken)
 	{
 		var command = new UpdateBlogCommand(requestModel, id);
 		var result = await _mediator.Send(command,cancellationToken);
@@ -64,7 +65,7 @@ public class BlogController : BaseController
 	#region PatchBlog
 
 	[HttpPatch("{id}")]
-	public async Task<IActionResult> PatchBlog([FromBody] BlogRequestModel requestModel, int id , CancellationToken cancellationToken)
+	public async Task<IActionResult> PatchBlog( BlogRequestModel requestModel, int id , CancellationToken cancellationToken)
 	{
 		var command = new PatchBlogCommand(requestModel, id);
 		var result = await _mediator.Send(command, cancellationToken);
