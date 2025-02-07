@@ -6,22 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Features\Blog\DeleteBlog\**" />
-    <Compile Remove="Features\Blog\GetBlogById\**" />
-    <Compile Remove="Features\Blog\GetBlogList\**" />
-    <Compile Remove="Features\Blog\PatchBlog\**" />
-    <Compile Remove="Features\Blog\UpdateBlog\**" />
-    <EmbeddedResource Remove="Features\Blog\DeleteBlog\**" />
-    <EmbeddedResource Remove="Features\Blog\GetBlogById\**" />
-    <EmbeddedResource Remove="Features\Blog\GetBlogList\**" />
-    <EmbeddedResource Remove="Features\Blog\PatchBlog\**" />
-    <EmbeddedResource Remove="Features\Blog\UpdateBlog\**" />
-    <None Remove="Features\Blog\DeleteBlog\**" />
-    <None Remove="Features\Blog\GetBlogById\**" />
-    <None Remove="Features\Blog\GetBlogList\**" />
-    <None Remove="Features\Blog\PatchBlog\**" />
-    <None Remove="Features\Blog\UpdateBlog\**" />
-  </ItemGroup>
-
 </Project>
