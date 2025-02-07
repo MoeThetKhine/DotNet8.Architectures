@@ -1,12 +1,1 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DotNet8.Architectures.ModularMonolithic.Modules.Application
-{
-	internal class GlobalUsing
-	{
-	}
-}
+﻿global using Microsoft.Extensions.DependencyInjection;
