@@ -24,8 +24,4 @@
     <None Remove="Features\Blog\UpdateBlog\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Blog\CreateBlog\" />
-  </ItemGroup>
-
 </Project>
