@@ -7,12 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Blog\DeleteBlog\**" />
+    <Compile Remove="Features\Blog\GetBlogById\**" />
+    <Compile Remove="Features\Blog\GetBlogList\**" />
+    <Compile Remove="Features\Blog\PatchBlog\**" />
+    <Compile Remove="Features\Blog\UpdateBlog\**" />
+    <EmbeddedResource Remove="Features\Blog\DeleteBlog\**" />
+    <EmbeddedResource Remove="Features\Blog\GetBlogById\**" />
+    <EmbeddedResource Remove="Features\Blog\GetBlogList\**" />
+    <EmbeddedResource Remove="Features\Blog\PatchBlog\**" />
+    <EmbeddedResource Remove="Features\Blog\UpdateBlog\**" />
+    <None Remove="Features\Blog\DeleteBlog\**" />
+    <None Remove="Features\Blog\GetBlogById\**" />
+    <None Remove="Features\Blog\GetBlogList\**" />
+    <None Remove="Features\Blog\PatchBlog\**" />
+    <None Remove="Features\Blog\UpdateBlog\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Features\Blog\CreateBlog\" />
-    <Folder Include="Features\Blog\DeleteBlog\" />
-    <Folder Include="Features\Blog\GetBlogById\" />
-    <Folder Include="Features\Blog\GetBlogList\" />
-    <Folder Include="Features\Blog\UpdateBlog\" />
-    <Folder Include="Features\Blog\PatchBlog\" />
   </ItemGroup>
 
 </Project>
