@@ -1,5 +1,7 @@
 ﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Extensions;
 
+#region Extension
+
 public static class Extension
 {
 	public static IServiceCollection AddMediatRService(this IServiceCollection services)
@@ -10,3 +12,5 @@ public static class Extension
 	}
 	
 }
+
+#endregion
