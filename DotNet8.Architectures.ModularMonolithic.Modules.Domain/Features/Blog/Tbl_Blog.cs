@@ -1,5 +1,7 @@
 ﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Domain.Features.Blog;
 
+#region Tbl_Blog
+
 public class Tbl_Blog
 {
 	[Key]
@@ -8,3 +10,5 @@ public class Tbl_Blog
 	public string BlogAuthor {  get; set; }
 	public string BlogContent {  get; set; }
 }
+
+#endregion
