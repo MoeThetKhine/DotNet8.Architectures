@@ -1,6 +1,5 @@
-﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog;
+
+public class BlogRepository
 {
-	internal class BlogRepository
-	{
-	}
 }
