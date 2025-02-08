@@ -1,5 +1,5 @@
 ﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.PatchBlog;
 
-internal class PatchBlogCommandHandler
+public class PatchBlogCommandHandler
 {
 }
