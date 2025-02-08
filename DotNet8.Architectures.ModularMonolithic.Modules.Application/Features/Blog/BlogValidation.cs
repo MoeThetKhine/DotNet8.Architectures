@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog
 {
-	internal class BlogValidation
+	public class BlogValidation
 	{
 	}
 }
