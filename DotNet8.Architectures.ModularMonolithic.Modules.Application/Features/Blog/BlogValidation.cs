@@ -1,6 +1,5 @@
-﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog;
+
+public class BlogValidation
 {
-	public class BlogValidation
-	{
-	}
 }
