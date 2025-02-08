@@ -23,6 +23,11 @@ namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Extension
 			return services;
 		}
 
+		private static IServiceCollection AddRepositoryService(this IServiceCollection services)
+		{
+			return services.AddScoped<IBlogRepository, BlogRepository>();
+		}
+
 		
 	}
 }
