@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DotNet8.Architectures.DTO.Features.Blog;
+using DotNet8.Architectures.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace DotNet8.Architectures.ModularMonolithic.Modules.Domain.Features.Blog
 {
-	internal interface IBlogRepository
+	public interface IBlogRepository
 	{
+		Task<Result<BlogListModelV1>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken);
 	}
 }
