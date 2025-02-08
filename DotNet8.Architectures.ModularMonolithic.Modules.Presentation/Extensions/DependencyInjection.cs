@@ -7,6 +7,8 @@ namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Extension
 {
 	public static class DependencyInjection
 	{
+		#region AddDbContextService
+
 		private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
 		{
 			builder.Services.AddDbContext<AppDbContext>(
@@ -20,6 +22,8 @@ namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Extension
 				);
 			return services;
 		}
+
+		#endregion
 
 		private static IServiceCollection AddRepositoryService(this IServiceCollection services)
 		{
