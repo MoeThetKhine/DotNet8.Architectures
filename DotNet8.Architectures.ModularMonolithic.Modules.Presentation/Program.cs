@@ -9,7 +9,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDependencyInjection(builder);
 builder.Services.AddMediatRService();
 
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
