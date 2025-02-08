@@ -1,5 +1,4 @@
-﻿
-namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.CreateBlog
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.CreateBlog
 {
 	internal class CreateBlogCommandHandler
 	{
