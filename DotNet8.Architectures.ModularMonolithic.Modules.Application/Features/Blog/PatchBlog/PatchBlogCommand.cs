@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.PatchBlog
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.PatchBlog
 {
 	internal class PatchBlogCommand
 	{
