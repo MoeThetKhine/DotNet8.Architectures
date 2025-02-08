@@ -34,10 +34,15 @@ namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Extension
 
 		#endregion
 
+		#region AddDependencyInjection
+
 		public static IServiceCollection AddDependencyInjection(this IServiceCollection services, WebApplicationBuilder builder)
 		{
 			return services.AddDbContextService(builder)
 				.AddRepositoryService();
 		}
+
+		#endregion
+
 	}
 }
