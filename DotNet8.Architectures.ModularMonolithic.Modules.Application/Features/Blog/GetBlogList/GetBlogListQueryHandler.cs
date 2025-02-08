@@ -1,6 +1,5 @@
-﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.GetBlogList
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.GetBlogList;
+
+internal class GetBlogListQueryHandler
 {
-	internal class GetBlogListQueryHandler
-	{
-	}
 }
