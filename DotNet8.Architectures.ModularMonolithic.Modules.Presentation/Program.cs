@@ -4,8 +4,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region DI
+
 builder.Services.AddDependencyInjection(builder);
 builder.Services.AddMediatRService();
+
+#endregion
 
 var app = builder.Build();
 
