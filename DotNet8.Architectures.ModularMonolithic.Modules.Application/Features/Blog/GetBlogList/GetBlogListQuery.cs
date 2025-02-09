@@ -1,7 +1,6 @@
 ﻿using DotNet8.Architectures.DTO.Features.Blog;
 using DotNet8.Architectures.Utils;
 using MediatR;
-using System.Net;
 
 namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.GetBlogList;
 
