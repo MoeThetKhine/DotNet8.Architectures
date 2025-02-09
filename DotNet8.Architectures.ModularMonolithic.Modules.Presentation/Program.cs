@@ -1,4 +1,5 @@
 using DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Extensions;
+using DotNet8.Architectures.ModularMonolithic.Modules.Application.Extensions; 
 
 var builder = WebApplication.CreateBuilder(args);
 
