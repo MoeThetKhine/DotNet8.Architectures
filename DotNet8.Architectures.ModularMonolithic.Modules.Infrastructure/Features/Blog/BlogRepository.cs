@@ -17,19 +17,18 @@ public class BlogRepository : IBlogRepository
 
 		try
 		{
-			var query = _context.Tbl_Blogs.OrderByDescending(x=> x.BlogId);
-			var lst = await query.Paginate(pageNo, pageSize)
-				.ToListAsync(cancellationToken : cancellationToken);
-
+			var query = _context.Tbl_Blogs.OrderByDescending(x => x.BlogId);
+			var lst = await query
+				.Paginate(pageNo, pageSize)
+				.ToListAsync(cancellationToken: cancellationToken);
 			var totalCount = await query.CountAsync(cancellationToken: cancellationToken);
 			var pageCount = totalCount / pageSize;
-
-			if(totalCount %  pageSize > 0)
+			if (totalCount % pageSize > 0)
 			{
 				pageCount++;
 			}
 
-			var pageSettingModel = new PageSettingModel(pageNo, pageSize, totalCount);
+			var pageSettingModel = new PageSettingModel(pageNo, pageSize, pageCount, totalCount);
 			var model = new BlogListModelV1()
 			{
 				DataLst = lst.Select(x => new BlogModel()
@@ -37,10 +36,13 @@ public class BlogRepository : IBlogRepository
 					BlogId = x.BlogId,
 					BlogTitle = x.BlogTitle,
 					BlogAuthor = x.BlogAuthor,
-					BlogContent = x.BlogContent,
-				}).AsQueryable(),
+					BlogContent = x.BlogContent
+				})
+					.AsQueryable(),
 				PageSetting = pageSettingModel
 			};
+
+			result = Result<BlogListModelV1>.Success(model);
 		}
 
 		catch (Exception ex)
