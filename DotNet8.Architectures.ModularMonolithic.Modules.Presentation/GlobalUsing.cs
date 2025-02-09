@@ -8,4 +8,3 @@ global using DotNet8.Architectures.ModularMonolithic.Modules.Application.Feature
 global using MediatR;
 global using DotNet8.Architectures.ModularMonolithic.Modules.Domain.Features.Blog;
 global using DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog;
-
