@@ -1,4 +1,7 @@
-﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Extensions;
+﻿using DotNet8.Architectures.ModularMonolithic.Modules.Domain.Features.Blog;
+using DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog;
+
+namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Extensions;
 
 public static class DependencyInjection
 {
