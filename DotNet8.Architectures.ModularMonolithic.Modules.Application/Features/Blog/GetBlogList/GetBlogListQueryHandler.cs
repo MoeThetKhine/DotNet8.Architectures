@@ -1,7 +1,4 @@
-﻿using DotNet8.Architectures.ModularMonolithic.Modules.Domain.Features.Blog;
-using DotNet8.Architectures.Utils.Resources;
-
-namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.GetBlogList;
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.GetBlogList;
 
 public class GetBlogListQueryHandler : IRequestHandler<GetBlogListQuery, Result<BlogListModelV1>>
 {
