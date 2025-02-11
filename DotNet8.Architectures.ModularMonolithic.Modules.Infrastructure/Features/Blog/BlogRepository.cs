@@ -9,6 +9,38 @@ public class BlogRepository : IBlogRepository
 		_context = context;
 	}
 
+	public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		try
+		{
+			var blog = await _context.Tbl_Blogs.FindAsync([id, cancellationToken], cancellationToken : cancellationToken);
+
+			if(blog is null)
+			{
+				result = Result<BlogModel>.NotFound();
+				goto result;
+			}
+
+			result = Result<BlogModel>.Success(new BlogModel()
+			{
+				BlogId = blog.BlogId,
+				BlogTitle = blog.BlogTitle,
+				BlogAuthor = blog.BlogAuthor,
+				BlogContent = blog.BlogContent,
+			});
+		}
+		catch (Exception ex)
+		{
+			result = Result<BlogModel>.Failure(ex);
+		}
+
+		result:
+		return result;
+
+	}
+
 	#region GetBlogsAsync
 
 	public async Task<Result<BlogListModelV1>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
