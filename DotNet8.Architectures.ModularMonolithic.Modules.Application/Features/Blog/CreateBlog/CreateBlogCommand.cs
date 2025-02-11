@@ -4,8 +4,13 @@ public class CreateBlogCommand : IRequest<Result<BlogModel>>
 {
 	public BlogRequestModel requestModel;
 
+	#region CreateBlogCommand
+
 	public CreateBlogCommand(BlogRequestModel requestModel)
 	{
 		this.requestModel = requestModel;
 	}
+
+	#endregion
+
 }
