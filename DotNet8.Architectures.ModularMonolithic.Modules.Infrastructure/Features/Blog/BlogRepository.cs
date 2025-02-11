@@ -1,4 +1,6 @@
-﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog;
+﻿using DotNet8.Architectures.Extensions;
+
+namespace DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog;
 
 public class BlogRepository : IBlogRepository
 {
@@ -89,5 +91,25 @@ public class BlogRepository : IBlogRepository
 	}
 
 	#endregion
+
+	public async Task<Result<BlogModel>> CreateBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		try
+		{
+			await _context.Tbl_Blogs.AddAsync(blogRequest.ToEntity(), cancellationToken);
+			await _context.SaveChangesAsync(cancellationToken);
+
+			result = Result<BlogModel>.SaveSuccess();
+		}
+
+		catch(Exception ex)
+		{
+			result = Result<BlogModel>.Failure(ex);
+		}
+
+		return result;
+	}
 
 }
