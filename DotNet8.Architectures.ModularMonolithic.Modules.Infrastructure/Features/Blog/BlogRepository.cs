@@ -1,6 +1,4 @@
-﻿using DotNet8.Architectures.Extensions;
-
-namespace DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog;
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Features.Blog;
 
 public class BlogRepository : IBlogRepository
 {

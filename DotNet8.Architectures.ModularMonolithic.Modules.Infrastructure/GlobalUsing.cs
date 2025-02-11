@@ -5,3 +5,4 @@ global using DotNet8.Architectures.ModularMonolithic.Modules.Domain.Features.Blo
 global using DotNet8.Architectures.Shared;
 global using DotNet8.Architectures.Utils;
 global using Microsoft.EntityFrameworkCore;
+global using DotNet8.Architectures.Extensions;
