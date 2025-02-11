@@ -9,6 +9,8 @@ public class BlogRepository : IBlogRepository
 		_context = context;
 	}
 
+	#region GetBlogByIdAsync
+
 	public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
 	{
 		Result<BlogModel> result;
@@ -40,6 +42,8 @@ public class BlogRepository : IBlogRepository
 		return result;
 
 	}
+
+	#endregion
 
 	#region GetBlogsAsync
 
