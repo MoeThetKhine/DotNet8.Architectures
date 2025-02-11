@@ -1,7 +1,4 @@
-﻿using DotNet8.Architectures.DTO.Features.Blog;
-using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.CreateBlog;
-
-namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Controllers.Blog;
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Controllers.Blog;
 
 [Route("api/[controller]")]
 [ApiController]
