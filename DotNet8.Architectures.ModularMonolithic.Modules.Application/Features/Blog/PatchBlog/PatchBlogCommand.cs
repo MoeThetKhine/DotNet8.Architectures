@@ -6,9 +6,14 @@ public class PatchBlogCommand : IRequest<Result<BlogModel>>
 
 	public int BlogId { get; set; }
 
+	#region PatchBlogCommand
+
 	public PatchBlogCommand(BlogRequestModel blogRequestModel, int blogId)
 	{
 		BlogRequestModel = blogRequestModel;
 		BlogId = blogId;
 	}
+
+	#endregion
+
 }
