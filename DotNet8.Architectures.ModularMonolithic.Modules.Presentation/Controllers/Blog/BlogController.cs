@@ -1,4 +1,5 @@
-﻿using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.PatchBlog;
+﻿using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.DeleteBlog;
+using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.PatchBlog;
 
 namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Controllers.Blog;
 
@@ -69,6 +70,14 @@ public class BlogController : BaseController
 	public async Task<IActionResult> PatchBlog([FromBody] BlogRequestModel requestModel, int id, CancellationToken cancellationToken)
 	{
 		var command = new PatchBlogCommand(requestModel, id);
+		var result = await _mediator.Send(command, cancellationToken);
+		return Content(result);
+	}
+
+	[HttpDelete("{id}")]
+	public async Task<IActionResult> DeleteBlog(int id, CancellationToken cancellationToken)
+	{
+		var command = new DeleteBlogCommand(id);
 		var result = await _mediator.Send(command, cancellationToken);
 		return Content(result);
 	}
