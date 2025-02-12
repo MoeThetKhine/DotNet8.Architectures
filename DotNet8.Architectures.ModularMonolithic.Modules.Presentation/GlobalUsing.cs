@@ -11,4 +11,5 @@ global using DotNet8.Architectures.ModularMonolithic.Modules.Infrastructure.Feat
 global using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.GetBlogById;
 global using DotNet8.Architectures.DTO.Features.Blog;
 global using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.CreateBlog;
+global using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.UpdateBlog;
 
