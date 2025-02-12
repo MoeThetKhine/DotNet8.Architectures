@@ -1,7 +1,4 @@
-﻿using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.DeleteBlog;
-using DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.PatchBlog;
-
-namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Controllers.Blog;
+﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Presentation.Controllers.Blog;
 
 [Route("api/[controller]")]
 [ApiController]
