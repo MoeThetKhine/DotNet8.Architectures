@@ -7,7 +7,7 @@ public class BaseController : ControllerBase
 
 	#region Content
 
-	public IActionResult Content(Object obj)
+	protected IActionResult Content(object obj)
 	{
 		return Content(obj.ToJson(), "application/json");
 	}
