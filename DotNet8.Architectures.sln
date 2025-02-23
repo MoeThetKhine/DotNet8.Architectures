@@ -65,6 +65,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Modul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.ModularMonolithic.Modules.Presentation", "DotNet8.Architectures.ModularMonolithic.Modules.Presentation\DotNet8.Architectures.ModularMonolithic.Modules.Presentation.csproj", "{EB065CA0-5A09-4D92-9D11-30BA23A54F12}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{6AD23C2D-2A60-4E6F-A00E-24FC530FBD2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
