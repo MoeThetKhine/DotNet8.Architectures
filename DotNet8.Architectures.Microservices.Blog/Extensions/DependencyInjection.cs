@@ -1,8 +1,4 @@
-﻿using DotNet8.Architectures.DbServices.Models;
-using DotNet8.Architectures.Microservices.Blog.Features.Blog;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.Architectures.Microservices.Blog.Extensions;
+﻿namespace DotNet8.Architectures.Microservices.Blog.Extensions;
 
 public static class DependencyInjection
 {
