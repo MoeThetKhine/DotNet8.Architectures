@@ -37,10 +37,14 @@ namespace DotNet8.Architectures.Microservices.Blog.Extensions
 
 		#endregion
 
+		#region AddDataAccessService
+
 		private static IServiceCollection AddDataAccessService(this  IServiceCollection services)
 		{
 			return services.AddScoped<DA_Blog>();
 		}
+
+		#endregion
 
 		private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
 		{
