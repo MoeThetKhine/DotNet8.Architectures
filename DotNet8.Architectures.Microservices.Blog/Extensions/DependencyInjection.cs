@@ -46,9 +46,13 @@ namespace DotNet8.Architectures.Microservices.Blog.Extensions
 
 		#endregion
 
+		#region AddBusinessLogicService
+
 		private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
 		{
 			return services.AddScoped<BL_Blog>();
 		}
+
+		#endregion
 	}
 }
