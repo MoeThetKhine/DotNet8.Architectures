@@ -19,6 +19,8 @@ namespace DotNet8.Architectures.Microservices.Blog.Extensions
 
 		#endregion
 
+		#region AddDbContextService
+
 		private static IServiceCollection AddDbContextService(this IServiceCollection services, WebApplicationBuilder builder)
 		{
 			builder.Services.AddDbContext<AppDbContext>(
@@ -32,6 +34,8 @@ namespace DotNet8.Architectures.Microservices.Blog.Extensions
 				);
 			return services;
 		}
+
+		#endregion
 
 		private static IServiceCollection AddDataAccessService(this  IServiceCollection services)
 		{
