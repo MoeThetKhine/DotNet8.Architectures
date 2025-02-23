@@ -1,4 +1,5 @@
 ﻿using DotNet8.Architectures.DbServices.Models;
+using DotNet8.Architectures.Microservices.Blog.Features.Blog;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNet8.Architectures.Microservices.Blog.Extensions
@@ -23,6 +24,11 @@ namespace DotNet8.Architectures.Microservices.Blog.Extensions
 				ServiceLifetime.Transient
 				);
 			return services;
+		}
+
+		private static IServiceCollection AddDataAccessService(this  IServiceCollection services)
+		{
+			return services.AddScoped<DA_Blog>();
 		}
 	}
 }
