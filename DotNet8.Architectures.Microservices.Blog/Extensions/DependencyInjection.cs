@@ -30,5 +30,10 @@ namespace DotNet8.Architectures.Microservices.Blog.Extensions
 		{
 			return services.AddScoped<DA_Blog>();
 		}
+
+		private static IServiceCollection AddBusinessLogicService(this IServiceCollection services)
+		{
+			return services.AddScoped<BL_Blog>();
+		}
 	}
 }
