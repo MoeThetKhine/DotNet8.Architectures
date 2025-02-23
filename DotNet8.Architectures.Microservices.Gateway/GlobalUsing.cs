@@ -1,6 +1,1 @@
-﻿namespace DotNet8.Architectures.Microservices.Gateway
-{
-	public class GlobalUsing
-	{
-	}
-}
+﻿
