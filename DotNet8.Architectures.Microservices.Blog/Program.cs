@@ -1,8 +1,12 @@
+using DotNet8.Architectures.Microservices.Blog.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDependencyInjection(builder);
 
 var app = builder.Build();
 
