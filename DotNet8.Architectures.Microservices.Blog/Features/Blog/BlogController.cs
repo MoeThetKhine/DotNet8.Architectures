@@ -28,7 +28,7 @@ public class BlogController : BaseController
 	public async Task<IActionResult> GetBlogById(int id, CancellationToken cancellationToken)
 	{
 		var result = await _dA_Blog.GetBlogByIdAsync(id, cancellationToken);
-		return Ok(result);
+		return Content(result);
 	}
 
 	#endregion
