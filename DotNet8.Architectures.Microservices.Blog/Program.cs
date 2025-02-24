@@ -1,5 +1,3 @@
-using DotNet8.Architectures.Microservices.Blog.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
