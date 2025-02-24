@@ -2,7 +2,7 @@
 
 [Route("api/[controller]")]
 [ApiController]
-public class BlogController : ControllerBase
+public class BlogController : BaseController
 {
 	private readonly DA_Blog _dA_Blog;
 
@@ -17,7 +17,7 @@ public class BlogController : ControllerBase
 	public async Task<IActionResult> GetBlogs(int pageNo, int pageSize, CancellationToken cancellationToken)
 	{
 		var result = await _dA_Blog.GetBlogsAsync(pageNo, pageSize, cancellationToken);
-		return Ok(result);
+		return Content(result);
 	}
 
 	#endregion
@@ -43,5 +43,12 @@ public class BlogController : ControllerBase
 	}
 
 	#endregion
+
+	[HttpPut("{id}")]
+	public async Task<IActionResult> UpdateBlog([FromBody] BlogRequestModel blogRequest, int id , CancellationToken cancellationToken)
+	{
+		var result = await _dA_Blog.UpdateBlogAsync(blogRequest, id, cancellationToken);
+		return Content(result);
+	}
 
 }
