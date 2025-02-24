@@ -14,6 +14,8 @@ namespace DotNet8.Architectures.Microservices.Blog.Features.Blog
 			_context = context;
 		}
 
+		#region GetBlogsAsync
+
 		public async Task<Result<BlogListModelV1>> GetBlogsAsync(int pageNo, int pageSize, CancellationToken cancellationToken)
 		{
 			Result<BlogListModelV1> result;
@@ -52,8 +54,8 @@ namespace DotNet8.Architectures.Microservices.Blog.Features.Blog
 				result = Result<BlogListModelV1>.Failure(ex);
 			}
 			return result;
-
-
 		}
+
+		#endregion
 	}
 }
