@@ -1,4 +1,6 @@
-﻿namespace DotNet8.Architectures.Microservices.Blog.Features.Blog;
+﻿using DotNet8.Architectures.Extensions;
+
+namespace DotNet8.Architectures.Microservices.Blog.Features.Blog;
 
 public class DA_Blog
 {
@@ -92,4 +94,22 @@ public class DA_Blog
 
 	#endregion
 
+	public async Task<Result<BlogModel>> AddBlogAsync(BlogRequestModel blogRequest, CancellationToken cancellationToken)
+	{
+		Result<BlogModel> result;
+
+		try
+		{
+			await _context.Tbl_Blogs.AddAsync(blogRequest.ToEntity(), cancellationToken);
+			await _context.SaveChangesAsync(cancellationToken);
+
+			result = Result<BlogModel>.SaveSuccess();
+		}
+		catch (Exception ex)
+		{
+			result = Result<BlogModel>.Failure(ex);
+		}
+
+		return result;
+	}
 }
