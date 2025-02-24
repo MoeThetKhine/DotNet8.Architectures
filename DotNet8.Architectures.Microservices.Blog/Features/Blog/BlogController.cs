@@ -13,12 +13,16 @@ namespace DotNet8.Architectures.Microservices.Blog.Features.Blog
 			_dA_Blog = dA_Blog;
 		}
 
+		#region GetBlogs
+
 		[HttpGet]
 		public async Task<IActionResult> GetBlogs(int pageNo, int pageSize, CancellationToken cancellationToken)
 		{
 			var result = await _dA_Blog.GetBlogsAsync(pageNo, pageSize, cancellationToken);
 			return Ok(result);
 		}
+
+		#endregion
 
 	}
 }
