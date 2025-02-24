@@ -33,4 +33,11 @@ public class BlogController : ControllerBase
 
 	#endregion
 
+	[HttpPost]
+	public async Task<IActionResult> CreateBlog([FromBody] BlogRequestModel blogRequest, CancellationToken cancellationToken)
+	{
+		var result = await _dA_Blog.AddBlogAsync(blogRequest, cancellationToken);
+		return Ok(result);
+	}
+
 }
