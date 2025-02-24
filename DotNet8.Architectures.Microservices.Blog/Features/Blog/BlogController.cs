@@ -22,11 +22,15 @@ public class BlogController : ControllerBase
 
 	#endregion
 
+	#region GetBlogById
+
 	[HttpGet("{id}")]
 	public async Task<IActionResult> GetBlogById(int id, CancellationToken cancellationToken)
 	{
 		var result = await _dA_Blog.GetBlogByIdAsync(id, cancellationToken);
 		return Ok(result);
 	}
+
+	#endregion
 
 }
