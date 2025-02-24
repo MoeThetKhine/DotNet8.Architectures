@@ -1,6 +1,5 @@
-﻿namespace DotNet8.Architectures.Microservices.Blog.Features.Blog
+﻿namespace DotNet8.Architectures.Microservices.Blog.Features.Blog;
+
+public class BL_Blog
 {
-	public class BL_Blog
-	{
-	}
 }
