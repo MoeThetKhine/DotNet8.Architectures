@@ -53,6 +53,7 @@ public class DA_Blog
 
 	#endregion
 
+	#region GetBlogByIdAsync
 
 	public async Task<Result<BlogModel>> GetBlogByIdAsync(int id, CancellationToken cancellationToken)
 	{
@@ -88,5 +89,7 @@ public class DA_Blog
 		result:
 		return result;
 	}
+
+	#endregion
 
 }
