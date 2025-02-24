@@ -2,3 +2,7 @@
 global using DotNet8.Architectures.Microservices.Blog.Features.Blog;
 global using Microsoft.EntityFrameworkCore;
 global using DotNet8.Architectures.Microservices.Blog.Extensions;
+global using DotNet8.Architectures.DTO.Features.Blog;
+global using DotNet8.Architectures.DTO.PageSetting;
+global using DotNet8.Architectures.Shared;
+global using DotNet8.Architectures.Utils;

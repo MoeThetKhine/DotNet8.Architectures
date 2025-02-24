@@ -1,9 +1,4 @@
-﻿using DotNet8.Architectures.DTO.Features.Blog;
-using DotNet8.Architectures.DTO.PageSetting;
-using DotNet8.Architectures.Shared;
-using DotNet8.Architectures.Utils;
-
-namespace DotNet8.Architectures.Microservices.Blog.Features.Blog
+﻿namespace DotNet8.Architectures.Microservices.Blog.Features.Blog
 {
 	public class DA_Blog
 	{
