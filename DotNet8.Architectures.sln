@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Micro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.Architectures.Microservices.Blog", "DotNet8.Architectures.Microservices.Blog\DotNet8.Architectures.Microservices.Blog.csproj", "{7CD852B8-1C1A-4B23-9FFC-905FDB0813CC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{E17390B5-CE92-4EF7-933D-9F3A7B31941C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
