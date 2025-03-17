@@ -230,7 +230,7 @@ public class DA_Blog
         try
         {
             var blog = await _context
-                .TblBlogs
+                .Tbl_Blogs
                 .FirstOrDefaultAsync(x => x.BlogId == id, cancellationToken: cancellationToken);
 
             if(blog is null)
