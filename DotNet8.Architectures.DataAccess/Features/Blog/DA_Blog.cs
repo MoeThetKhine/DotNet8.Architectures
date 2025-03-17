@@ -206,7 +206,7 @@ public class DA_Blog
                 blog.BlogContent= requestModel.BlogContent;
             }
 
-            _context.TblBlogs.Update(blog);
+            _context.Tbl_Blogs.Update(blog);
             await _context.SaveChangesAsync(cancellationToken);
 
             response = Result<BlogModel>.UpdateSuccess();
