@@ -239,7 +239,7 @@ public class DA_Blog
                 goto result;
             }
 
-            _context.TblBlogs .Remove(blog);
+            _context.Tbl_Blogs .Remove(blog);
             await _context.SaveChangesAsync(cancellationToken);
 
             response=Result<BlogModel>.UpdateSuccess();
