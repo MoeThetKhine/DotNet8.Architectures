@@ -124,7 +124,7 @@ public class DA_Blog
 
         try
         {
-            await _context.TblBlogs.AddAsync(blogRequest.ToEntity(), cancellationToken: cancellationToken);
+            await _context.Tbl_Blogs.AddAsync(blogRequest.ToEntity(), cancellationToken: cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
 
             response = Result<BlogModel>.SaveSuccess();
