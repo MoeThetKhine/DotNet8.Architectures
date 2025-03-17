@@ -184,7 +184,7 @@ public class DA_Blog
 
         try
         {
-            var blog = await _context.TblBlogs.FindAsync([id , cancellationToken],
+            var blog = await _context.Tbl_Blogs.FindAsync([id , cancellationToken],
                 cancellationToken : cancellationToken);
 
             if(blog is null)
