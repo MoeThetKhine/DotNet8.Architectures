@@ -17,7 +17,7 @@ public class DA_Blog
 
         try
         {
-            var query = _context.TblBlogs.OrderByDescending(x => x.BlogId);
+            var query = _context.Tbl_Blogs.OrderByDescending(x => x.BlogId);
             var lst = await query
                 .Skip((pageNo - 1) * pageSize)
                 .Take(pageSize)
