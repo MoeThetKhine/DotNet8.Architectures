@@ -101,7 +101,7 @@ public class DA_Blog
             blog.BlogAuthor = blogRequest.BlogAuthor;
             blog.BlogContent = blogRequest.BlogContent;
 
-            _context.TblBlogs.Update(blog);
+            _context.Tbl_Blogs.Update(blog);
             await _context.SaveChangesAsync(cancellationToken);
 
             response = Result<BlogModel>.SaveSuccess();
