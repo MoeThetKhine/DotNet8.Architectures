@@ -1,5 +1,4 @@
-﻿using System;
-namespace DotNet8.Architectures.Clean.Application.Features.Blog.CreateBlog;
+﻿namespace DotNet8.Architectures.Clean.Application.Features.Blog.CreateBlog;
 
 public class CreateBlogCommand : IRequest<Result<BlogModel>>
 {
