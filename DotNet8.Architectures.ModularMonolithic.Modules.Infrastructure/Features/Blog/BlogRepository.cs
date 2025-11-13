@@ -135,7 +135,7 @@ public class BlogRepository : IBlogRepository
 
 			_context.Tbl_Blogs.Update(blog);
 			await _context.SaveChangesAsync(cancellationToken);
-
+			 
 			result = Result<BlogModel>.UpdateSuccess();
 		}
 
