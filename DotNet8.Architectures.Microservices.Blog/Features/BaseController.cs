@@ -1,6 +1,4 @@
 ﻿using DotNet8.Architectures.Shared;
-using Microsoft.AspNetCore.Mvc;
-
 namespace DotNet8.Architectures.Microservices.Blog.Features;
 
 [Route("api/[controller]")]
