@@ -1,5 +1,4 @@
-﻿using DotNet8.Architectures.Shared;
-namespace DotNet8.Architectures.Microservices.Blog.Features;
+﻿namespace DotNet8.Architectures.Microservices.Blog.Features;
 
 [Route("api/[controller]")]
 [ApiController]
