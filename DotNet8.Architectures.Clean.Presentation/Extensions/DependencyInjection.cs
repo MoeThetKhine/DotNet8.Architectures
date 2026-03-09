@@ -1,4 +1,4 @@
-﻿namespace DotNet8.Architectures.Clean.Presentation.Extensions;
+﻿	namespace DotNet8.Architectures.Clean.Presentation.Extensions;
 
 public static class DependencyInjection
 {
