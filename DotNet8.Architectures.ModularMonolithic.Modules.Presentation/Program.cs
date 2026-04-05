@@ -9,6 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDependencyInjection(builder);
 builder.Services.AddMediatRService();
 
+
 #endregion
 
 var app = builder.Build();
