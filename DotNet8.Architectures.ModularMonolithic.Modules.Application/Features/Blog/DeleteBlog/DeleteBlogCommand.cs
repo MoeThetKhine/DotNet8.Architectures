@@ -1,5 +1,7 @@
 ﻿namespace DotNet8.Architectures.ModularMonolithic.Modules.Application.Features.Blog.DeleteBlog;
 
+#region DeleteBlogCommand
+
 public class DeleteBlogCommand : IRequest<Result<BlogModel>>
 {
 	public int BlogId { get; set; }
@@ -14,3 +16,5 @@ public class DeleteBlogCommand : IRequest<Result<BlogModel>>
 	#endregion
 
 }
+
+#endregion
